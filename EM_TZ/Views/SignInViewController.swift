@@ -103,6 +103,7 @@ class SignInViewController: UIViewController {
         haveAnAccountlabel.textColor = UIColor(red: 0.502, green: 0.502, blue: 0.502, alpha: 1)
         haveAnAccountlabel.font = .systemFont(ofSize: 15)
         haveAnAccountlabel.text = "Already have an account?"
+        signInButton.addTarget(self, action: #selector(signInButtonPressed), for: .touchUpInside)
         
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -115,6 +116,11 @@ class SignInViewController: UIViewController {
         loginButton.titleLabel?.font = .systemFont(ofSize: 15)
         loginButton.setTitleColor(UIColor(red: 0.145, green: 0.31, blue: 0.902, alpha: 1), for: .normal)
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc
+    func signInButtonPressed() {
+        coordinator.showFirstPage()
     }
     
     @objc

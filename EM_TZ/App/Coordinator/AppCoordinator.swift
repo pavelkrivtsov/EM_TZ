@@ -29,4 +29,10 @@ class AppCoordinator: Coordinator {
         navigationController.navigationBar.isHidden = true
         navigationController.pushViewController(vc, animated: false)
     }
+    
+    func showFirstPage() {
+        let vc = TabBarViewController()
+        navigationController.navigationBar.isHidden = true
+        navigationController.pushViewController(vc, animated: false)
+    }
 }

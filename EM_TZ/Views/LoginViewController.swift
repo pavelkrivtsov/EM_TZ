@@ -77,5 +77,11 @@ class LoginPageViewController: UIViewController {
         loginButton.layer.backgroundColor = UIColor(red: 0.306, green: 0.333, blue: 0.843, alpha: 1).cgColor
         loginButton.setTitle("Sign in", for: .normal)
         loginButton.layer.cornerRadius = 15
+        loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc
+    func loginButtonPressed() {
+        coordinator.showFirstPage()
     }
 }
