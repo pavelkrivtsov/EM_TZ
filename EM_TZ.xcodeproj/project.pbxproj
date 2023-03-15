@@ -15,6 +15,10 @@
 		9072B92329C22D2E001B3DF0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9072B92229C22D2E001B3DF0 /* AppCoordinator.swift */; };
 		9072B92529C22D39001B3DF0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9072B92429C22D39001B3DF0 /* Coordinator.swift */; };
 		908808FD29C232570061EF2E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908808FC29C232570061EF2E /* TabBarViewController.swift */; };
+		9088090029C233BE0061EF2E /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908808FF29C233BE0061EF2E /* CoreDataStore.swift */; };
+		9088090329C233D40061EF2E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9088090129C233D40061EF2E /* Model.xcdatamodeld */; };
+		9088090A29C234970061EF2E /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088090829C234970061EF2E /* User+CoreDataClass.swift */; };
+		9088090B29C234970061EF2E /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088090929C234970061EF2E /* User+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		9072B92229C22D2E001B3DF0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9072B92429C22D39001B3DF0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		908808FC29C232570061EF2E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		908808FF29C233BE0061EF2E /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		9088090229C233D40061EF2E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		9088090829C234970061EF2E /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9088090929C234970061EF2E /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				9072B92029C22D10001B3DF0 /* App */,
+				908808FE29C233AC0061EF2E /* CoreDataStore */,
 				9072B91F29C22D00001B3DF0 /* Views */,
 				9072B91C29C22483001B3DF0 /* Resources */,
 			);
@@ -111,6 +120,17 @@
 				9072B92429C22D39001B3DF0 /* Coordinator.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		908808FE29C233AC0061EF2E /* CoreDataStore */ = {
+			isa = PBXGroup;
+			children = (
+				908808FF29C233BE0061EF2E /* CoreDataStore.swift */,
+				9088090129C233D40061EF2E /* Model.xcdatamodeld */,
+				9088090829C234970061EF2E /* User+CoreDataClass.swift */,
+				9088090929C234970061EF2E /* User+CoreDataProperties.swift */,
+			);
+			path = CoreDataStore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,11 +203,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9088090029C233BE0061EF2E /* CoreDataStore.swift in Sources */,
 				9072B92329C22D2E001B3DF0 /* AppCoordinator.swift in Sources */,
 				9072B91E29C22BA1001B3DF0 /* LoginViewController.swift in Sources */,
+				9088090329C233D40061EF2E /* Model.xcdatamodeld in Sources */,
 				9072B92529C22D39001B3DF0 /* Coordinator.swift in Sources */,
+				9088090A29C234970061EF2E /* User+CoreDataClass.swift in Sources */,
 				9072B90D29C22404001B3DF0 /* SignInViewController.swift in Sources */,
 				908808FD29C232570061EF2E /* TabBarViewController.swift in Sources */,
+				9088090B29C234970061EF2E /* User+CoreDataProperties.swift in Sources */,
 				9072B90929C22404001B3DF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +426,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9088090129C233D40061EF2E /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9088090229C233D40061EF2E /* Model.xcdatamodel */,
+			);
+			currentVersion = 9088090229C233D40061EF2E /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9072B8FD29C22404001B3DF0 /* Project object */;
 }
