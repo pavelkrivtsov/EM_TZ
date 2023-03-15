@@ -9,6 +9,17 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
+    var coordinator: AppCoordinator
+    
+    init(coordinator: AppCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     let signInLabel = UILabel()
     var firstNameField = UITextField()
     var secondNameField = UITextField()
@@ -108,7 +119,7 @@ class SignInViewController: UIViewController {
     
     @objc
     func loginButtonPressed() {
-        
+        coordinator.showLoginScreen()
     }
 }
 

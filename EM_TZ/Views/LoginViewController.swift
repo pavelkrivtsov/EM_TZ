@@ -9,6 +9,17 @@ import UIKit
 
 class LoginPageViewController: UIViewController {
     
+    var coordinator: AppCoordinator
+    
+    init(coordinator: AppCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     let loginLabel = UILabel()
     var firstNameField = UITextField()
     var passwordField = UITextField()
