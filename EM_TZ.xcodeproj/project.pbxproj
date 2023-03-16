@@ -19,6 +19,8 @@
 		9088090329C233D40061EF2E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9088090129C233D40061EF2E /* Model.xcdatamodeld */; };
 		9088090A29C234970061EF2E /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088090829C234970061EF2E /* User+CoreDataClass.swift */; };
 		9088090B29C234970061EF2E /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088090929C234970061EF2E /* User+CoreDataProperties.swift */; };
+		9088090D29C250A20061EF2E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088090C29C250A20061EF2E /* SignInViewModel.swift */; };
+		9088091329C27EDB0061EF2E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088091229C27EDB0061EF2E /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		9088090229C233D40061EF2E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9088090829C234970061EF2E /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9088090929C234970061EF2E /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9088090C29C250A20061EF2E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		9088091229C27EDB0061EF2E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			children = (
 				9072B92029C22D10001B3DF0 /* App */,
 				908808FE29C233AC0061EF2E /* CoreDataStore */,
+				9088090E29C251340061EF2E /* ViewModels */,
 				9072B91F29C22D00001B3DF0 /* Views */,
 				9072B91C29C22483001B3DF0 /* Resources */,
 			);
@@ -131,6 +136,15 @@
 				9088090929C234970061EF2E /* User+CoreDataProperties.swift */,
 			);
 			path = CoreDataStore;
+			sourceTree = "<group>";
+		};
+		9088090E29C251340061EF2E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9088090C29C250A20061EF2E /* SignInViewModel.swift */,
+				9088091229C27EDB0061EF2E /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +225,8 @@
 				9088090A29C234970061EF2E /* User+CoreDataClass.swift in Sources */,
 				9072B90D29C22404001B3DF0 /* SignInViewController.swift in Sources */,
 				908808FD29C232570061EF2E /* TabBarViewController.swift in Sources */,
+				9088091329C27EDB0061EF2E /* LoginViewModel.swift in Sources */,
+				9088090D29C250A20061EF2E /* SignInViewModel.swift in Sources */,
 				9088090B29C234970061EF2E /* User+CoreDataProperties.swift in Sources */,
 				9072B90929C22404001B3DF0 /* AppDelegate.swift in Sources */,
 			);

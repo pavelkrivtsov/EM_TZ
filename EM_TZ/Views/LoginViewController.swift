@@ -1,5 +1,5 @@
 //
-//  LoginPageViewController.swift
+//  LoginViewController.swift
 //  EM_TZ
 //
 //  Created by Pavel Krivtsov on 15.03.2023.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class LoginPageViewController: UIViewController {
+class LoginViewController: UIViewController {
     
-    var coordinator: AppCoordinator
+    var viewModel: LoginViewModel
     
-    init(coordinator: AppCoordinator) {
-        self.coordinator = coordinator
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -78,10 +78,22 @@ class LoginPageViewController: UIViewController {
         loginButton.setTitle("Sign in", for: .normal)
         loginButton.layer.cornerRadius = 15
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+        view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    @objc
+    func handleTapGesture() {
+        firstNameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
     }
     
     @objc
     func loginButtonPressed() {
-        coordinator.showFirstPage()
+        if let firstName = firstNameField.text, !firstName.isEmpty {
+            viewModel.loginButtonPressed(name: firstName)
+        }
     }
+    
 }

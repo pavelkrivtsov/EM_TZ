@@ -10,9 +10,12 @@ import UIKit
 class AppCoordinator: Coordinator {
     
     var navigationController: UINavigationController
+    var coreDataStore: CoreDataStore
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController,
+         coreDataStore: CoreDataStore) {
         self.navigationController = navigationController
+        self.coreDataStore = coreDataStore
     }
     
     func start() {
@@ -20,12 +23,14 @@ class AppCoordinator: Coordinator {
     }
 
     func showSingInScreen() {
-        let vc = SignInViewController(coordinator:  self)
+        let viewModel = SignInViewModel(coordinator: self, coreDataStore: coreDataStore)
+        let vc = SignInViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: false)
     }
     
     func showLoginScreen() {
-        let vc = LoginPageViewController(coordinator:  self)
+        let viewModel = LoginViewModel(coordinator: self, coreDataStore: coreDataStore)
+        let vc = LoginViewController(viewModel: viewModel)
         navigationController.navigationBar.isHidden = true
         navigationController.pushViewController(vc, animated: false)
     }

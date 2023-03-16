@@ -9,10 +9,10 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
-    var coordinator: AppCoordinator
+    var viewModel: SignInViewModel
     
-    init(coordinator: AppCoordinator) {
-        self.coordinator = coordinator
+    init(viewModel: SignInViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,11 +22,20 @@ class SignInViewController: UIViewController {
     
     let signInLabel = UILabel()
     var firstNameField = UITextField()
-    var secondNameField = UITextField()
+    var lastNameField = UITextField()
     var emailField = UITextField()
     var signInButton = UIButton()
     var haveAnAccountlabel = UILabel()
     var loginButton = UIButton()
+    
+    private lazy var alert: UIAlertController = {
+        var alert = UIAlertController(title: "Ошибка",
+                                      message: "Заполните поля для регистрации",
+                                      preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .cancel)
+        alert.addAction(ok)
+        return alert
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,23 +64,23 @@ class SignInViewController: UIViewController {
         firstNameField.placeholder = "First name"
         firstNameField.textAlignment = .center
         
-        view.addSubview(secondNameField)
-        secondNameField.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(lastNameField)
+        lastNameField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            secondNameField.topAnchor.constraint(equalTo: firstNameField.bottomAnchor, constant: 35),
-            secondNameField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            secondNameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
-            secondNameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -43),
-            secondNameField.heightAnchor.constraint(equalToConstant: 29)
+            lastNameField.topAnchor.constraint(equalTo: firstNameField.bottomAnchor, constant: 35),
+            lastNameField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            lastNameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
+            lastNameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -43),
+            lastNameField.heightAnchor.constraint(equalToConstant: 29)
         ])
-        secondNameField.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1)
-        secondNameField.placeholder = "Second name"
-        secondNameField.textAlignment = .center
+        lastNameField.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1)
+        lastNameField.placeholder = "Second name"
+        lastNameField.textAlignment = .center
         
         view.addSubview(emailField)
         emailField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            emailField.topAnchor.constraint(equalTo: secondNameField.bottomAnchor, constant: 35),
+            emailField.topAnchor.constraint(equalTo: lastNameField.bottomAnchor, constant: 35),
             emailField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
             emailField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -43),
@@ -116,16 +125,32 @@ class SignInViewController: UIViewController {
         loginButton.titleLabel?.font = .systemFont(ofSize: 15)
         loginButton.setTitleColor(UIColor(red: 0.145, green: 0.31, blue: 0.902, alpha: 1), for: .normal)
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+        view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    @objc
+    func handleTapGesture() {
+        firstNameField.resignFirstResponder()
+        lastNameField.resignFirstResponder()
+        emailField.resignFirstResponder()
     }
     
     @objc
     func signInButtonPressed() {
-        coordinator.showFirstPage()
+        if let firstName = firstNameField.text, !firstName.isEmpty,
+           let lastName = lastNameField.text, !lastName.isEmpty,
+           let email = emailField.text, !email.isEmpty {
+            viewModel.signInButtonPressed(firstname: firstName, lastName: lastName, email: email)
+        } else {
+            present(alert, animated: true)
+        }
     }
     
     @objc
     func loginButtonPressed() {
-        coordinator.showLoginScreen()
+        viewModel.loginButtonPressed()
     }
 }
 

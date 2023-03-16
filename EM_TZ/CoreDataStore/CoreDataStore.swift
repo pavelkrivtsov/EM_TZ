@@ -10,8 +10,6 @@ import CoreData
 
 final class CoreDataStore {
     
-    static var shared = CoreDataStore()
-    
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores { storeDescription, error in
@@ -22,9 +20,9 @@ final class CoreDataStore {
         return container
     }()
     
-    lazy var context = persistentContainer.viewContext
+    private lazy var context = persistentContainer.viewContext
     
-    func saveContext() {
+    private func saveContext() {
         if context.hasChanges {
             do {
                 try context.save()
@@ -35,11 +33,32 @@ final class CoreDataStore {
         }
     }
     
-    func saveUser(firstName: String, lastName: String, email: String) {
-        let user = User(context: context)
-        user.firstName = firstName
-        user.lastName = lastName
-        user.email = email
-        saveContext()
+    func isUserRegistered(firstName: String, lastName: String, email: String) -> Bool {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "email = %@", email)
+        fetchRequest.predicate = NSPredicate(format: "firstName = %@", firstName)
+        fetchRequest.predicate = NSPredicate(format: "lastName = %@", lastName)
+        
+        if let users = try? context.fetch(fetchRequest) as? [User], !users.isEmpty {
+            return true
+        } else {
+            let user = User(context: context)
+            user.firstName = firstName
+            user.lastName = lastName
+            user.email = email
+            saveContext()
+            return false
+        }
+    }
+    
+    func isUserRegistered(name: String) -> Bool {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "firstName = %@", name)
+        
+        if let users = try? context.fetch(fetchRequest) as? [User], !users.isEmpty {
+            return true
+        } else {
+            return false
+        }
     }
 }
