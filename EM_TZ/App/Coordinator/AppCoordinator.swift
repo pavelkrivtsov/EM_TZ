@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppCoordinator: Coordinator {
+final class AppCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     var coreDataStore: CoreDataStore
@@ -19,7 +19,8 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        showSingInScreen()
+//        showSingInScreen()
+        showFirstPage()
     }
 
     func showSingInScreen() {
@@ -36,7 +37,7 @@ class AppCoordinator: Coordinator {
     }
     
     func showFirstPage() {
-        let vc = TabBarViewController()
+        let vc = HomeViewController()
         navigationController.navigationBar.isHidden = true
         navigationController.pushViewController(vc, animated: false)
     }

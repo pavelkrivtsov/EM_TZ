@@ -21,6 +21,9 @@
 		9088090B29C234970061EF2E /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088090929C234970061EF2E /* User+CoreDataProperties.swift */; };
 		9088090D29C250A20061EF2E /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088090C29C250A20061EF2E /* SignInViewModel.swift */; };
 		9088091329C27EDB0061EF2E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088091229C27EDB0061EF2E /* LoginViewModel.swift */; };
+		9088094729C3A34C0061EF2E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088094629C3A34C0061EF2E /* HomeViewController.swift */; };
+		9088095629C61D6A0061EF2E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088095529C61D6A0061EF2E /* NetworkService.swift */; };
+		9088095B29C62C250061EF2E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088095A29C62C250061EF2E /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		9088090929C234970061EF2E /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9088090C29C250A20061EF2E /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		9088091229C27EDB0061EF2E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9088094629C3A34C0061EF2E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9088095529C61D6A0061EF2E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		9088095A29C62C250061EF2E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,7 @@
 			children = (
 				9072B92029C22D10001B3DF0 /* App */,
 				908808FE29C233AC0061EF2E /* CoreDataStore */,
+				9088095429C61D580061EF2E /* NerworkService */,
 				9088090E29C251340061EF2E /* ViewModels */,
 				9072B91F29C22D00001B3DF0 /* Views */,
 				9072B91C29C22483001B3DF0 /* Resources */,
@@ -97,6 +104,7 @@
 				9072B90C29C22404001B3DF0 /* SignInViewController.swift */,
 				9072B91D29C22BA1001B3DF0 /* LoginViewController.swift */,
 				908808FC29C232570061EF2E /* TabBarViewController.swift */,
+				9088094829C3A4610061EF2E /* HomeViewController */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +153,23 @@
 				9088091229C27EDB0061EF2E /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9088094829C3A4610061EF2E /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9088094629C3A34C0061EF2E /* HomeViewController.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		9088095429C61D580061EF2E /* NerworkService */ = {
+			isa = PBXGroup;
+			children = (
+				9088095529C61D6A0061EF2E /* NetworkService.swift */,
+				9088095A29C62C250061EF2E /* Models.swift */,
+			);
+			path = NerworkService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,12 +247,15 @@
 				9072B91E29C22BA1001B3DF0 /* LoginViewController.swift in Sources */,
 				9088090329C233D40061EF2E /* Model.xcdatamodeld in Sources */,
 				9072B92529C22D39001B3DF0 /* Coordinator.swift in Sources */,
+				9088095B29C62C250061EF2E /* Models.swift in Sources */,
 				9088090A29C234970061EF2E /* User+CoreDataClass.swift in Sources */,
 				9072B90D29C22404001B3DF0 /* SignInViewController.swift in Sources */,
 				908808FD29C232570061EF2E /* TabBarViewController.swift in Sources */,
+				9088095629C61D6A0061EF2E /* NetworkService.swift in Sources */,
 				9088091329C27EDB0061EF2E /* LoginViewModel.swift in Sources */,
 				9088090D29C250A20061EF2E /* SignInViewModel.swift in Sources */,
 				9088090B29C234970061EF2E /* User+CoreDataProperties.swift in Sources */,
+				9088094729C3A34C0061EF2E /* HomeViewController.swift in Sources */,
 				9072B90929C22404001B3DF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SignInViewModel {
+final class SignInViewModel {
     
     var coordinator: AppCoordinator
     var coreDataStore: CoreDataStore
