@@ -14,19 +14,21 @@ final class SignInViewController: UIViewController {
     
     let signInImage = UIImageView(image: UIImage(named: "SignIn"))
     let userStatusLabel = UILabel()
-    let firstNameField = UITextField()
-    let lastNameField = UITextField()
-    let emailField = UITextField()
+    let firstNameField = CustomTextField(placeholder: "First name")
+    let lastNameField = CustomTextField(placeholder: "Last name")
+    let emailField = CustomTextField(placeholder: "Email")
     let signInButton = UIButton()
     let haveAnAccountlabel = UILabel()
     let loginButton = UIButton()
     
+//    let customTF = CustomTextField(placeholder: "First name")
 
     init(viewModel: SignInViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -48,10 +50,6 @@ final class SignInViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(43)
             make.height.equalTo(29)
         }
-        firstNameField.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1)
-        firstNameField.placeholder = "First name"
-        firstNameField.font = .init(name: "Montserrat-Medium", size: 10)
-        firstNameField.textAlignment = .center
         
         view.addSubview(lastNameField)
         lastNameField.snp.makeConstraints { make in
@@ -60,10 +58,6 @@ final class SignInViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(43)
             make.height.equalTo(29)
         }
-        lastNameField.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1)
-        lastNameField.placeholder = "Second name"
-        lastNameField.font = .init(name: "Montserrat-Medium", size: 10)
-        lastNameField.textAlignment = .center
         
         view.addSubview(emailField)
         emailField.snp.makeConstraints { make in
@@ -72,10 +66,6 @@ final class SignInViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(43)
             make.height.equalTo(29)
         }
-        emailField.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1)
-        emailField.placeholder = "Email"
-        emailField.font = .init(name: "Montserrat-Medium", size: 10)
-        emailField.textAlignment = .center
         
         view.addSubview(signInButton)
         signInButton.snp.makeConstraints { make in

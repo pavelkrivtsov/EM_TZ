@@ -31,6 +31,7 @@
 		9088095B29C62C250061EF2E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088095A29C62C250061EF2E /* Models.swift */; };
 		9088096129C642BE0061EF2E /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088096029C642BE0061EF2E /* Dynamic.swift */; };
 		9088096429C64E900061EF2E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9088096329C64E900061EF2E /* SnapKit */; };
+		90E3E7FF29C8A46400D4D969 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E3E7FE29C8A46400D4D969 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		9088095529C61D6A0061EF2E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9088095A29C62C250061EF2E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		9088096029C642BE0061EF2E /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		90E3E7FE29C8A46400D4D969 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				9072B91D29C22BA1001B3DF0 /* LoginViewController.swift */,
 				908808FC29C232570061EF2E /* TabBarViewController.swift */,
 				9088094829C3A4610061EF2E /* HomeViewController */,
+				90E3E7FE29C8A46400D4D969 /* CustomTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				9088095B29C62C250061EF2E /* Models.swift in Sources */,
 				9088090A29C234970061EF2E /* User+CoreDataClass.swift in Sources */,
 				9072B90D29C22404001B3DF0 /* SignInViewController.swift in Sources */,
+				90E3E7FF29C8A46400D4D969 /* CustomTextField.swift in Sources */,
 				908808FD29C232570061EF2E /* TabBarViewController.swift in Sources */,
 				9088095629C61D6A0061EF2E /* NetworkService.swift in Sources */,
 				9088091329C27EDB0061EF2E /* LoginViewModel.swift in Sources */,

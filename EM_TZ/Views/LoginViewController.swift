@@ -18,13 +18,14 @@ final class LoginViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     let loginImage = UIImageView(image: UIImage(named: "WelcomeBack"))
-    var firstNameField = UITextField()
-    var passwordField = UITextField()
+    var firstNameField = CustomTextField(placeholder: "First name")
+    var passwordField = CustomTextField(placeholder: "Password")
     var loginButton = UIButton()
     
     override func viewDidLoad() {
@@ -44,9 +45,6 @@ final class LoginViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(43)
             make.height.equalTo(29)
         }
-        firstNameField.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1)
-        firstNameField.placeholder = "First name"
-        firstNameField.textAlignment = .center
         
         view.addSubview(passwordField)
         passwordField.snp.makeConstraints { make in
@@ -55,9 +53,6 @@ final class LoginViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(43)
             make.height.equalTo(29)
         }
-        passwordField.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1)
-        passwordField.placeholder = "Second name"
-        passwordField.textAlignment = .center
         
         view.addSubview(loginButton)
         loginButton.snp.makeConstraints { make in
