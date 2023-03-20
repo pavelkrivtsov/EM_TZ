@@ -10,23 +10,59 @@ import UIKit
 final class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        tabBar.backgroundColor = .red
-        
+         super.viewDidLoad()
+         generateTabBar()
+     }
+    
+    override func viewDidLayoutSubviews() {
+  setTabBarAppearance()
+    }
+    
+    private func generateTabBar() {
         viewControllers = [
-            createNavigationController(rootViewController: UIViewController(), title: "Home"),
-            createNavigationController(rootViewController: UIViewController(), title: "Favourites"),
-            createNavigationController(rootViewController: UIViewController(), title: "Shopping cart"),
-            createNavigationController(rootViewController: UIViewController(), title: "Chat"),
-            createNavigationController(rootViewController: UIViewController(), title: "Profile"),
+            generateVC(
+                viewController: HomeViewController(),
+                image: UIImage(named: "home")
+            ),
+            generateVC(
+                viewController: HomeViewController(),
+                image: UIImage(named: "favourites")
+            ),
+            generateVC(
+                viewController: HomeViewController(),
+                image: UIImage(named: "cart")
+            ),
+            generateVC(
+                viewController: HomeViewController(),
+                image: UIImage(named: "chat")
+            ),
+            generateVC(
+                viewController: HomeViewController(),
+                image: UIImage(named: "profile")
+            ),
         ]
     }
     
-    private func createNavigationController(rootViewController: UIViewController, title: String) -> UIViewController {
-        let navigationVC = UINavigationController(rootViewController: rootViewController)
-        rootViewController.title = title
-        rootViewController.view.backgroundColor = .white
-        navigationVC.tabBarItem.title = title
-        return navigationVC
+    private func generateVC(viewController: UIViewController, image: UIImage?) -> UIViewController {
+        viewController.tabBarItem.image = image
+        viewController.tabBarItem.imageInsets = UIEdgeInsets(top: 6.0, left: 0.0, bottom: -6.0, right: 0.0)
+        return viewController
+    }
+    
+    private func setTabBarAppearance() {
+        tabBar.itemPositioning = .centered
+        tabBar.layer.masksToBounds = true
+        tabBar.layer.cornerRadius = 30
+        tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+
+        tabBar.backgroundColor = UIColor.mainWhite
+        tabBar.tintColor = .tabBarItemAccent
+        tabBar.unselectedItemTintColor = .tabBarItemLight
+        tabBar.selectionIndicatorImage = .init(named: "backgroundCircle")
+
+        tabBar.bounds = .init(x: tabBar.bounds.minX,
+                             y: tabBar.bounds.minY,
+                             width: tabBar.bounds.width,
+                             height: tabBar.bounds.height + 13)
     }
 }

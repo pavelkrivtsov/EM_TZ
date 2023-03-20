@@ -11,7 +11,6 @@ import SnapKit
 final class LoginViewController: UIViewController {
     
     var viewModel: LoginViewModel
-    let userStatusLabel = UILabel()
     
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -24,6 +23,7 @@ final class LoginViewController: UIViewController {
     }
     
     let loginImage = UIImageView(image: UIImage(named: "WelcomeBack"))
+    let userStatusLabel = UILabel()
     var firstNameField = CustomTextField(placeholder: "First name")
     var passwordField = CustomTextField(placeholder: "Password")
     var loginButton = UIButton()
@@ -35,15 +35,16 @@ final class LoginViewController: UIViewController {
         view.addSubview(loginImage)
         loginImage.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().inset(125)
+            make.top.equalToSuperview().inset(158.71)
+            make.leading.trailing.equalToSuperview().inset(43)
         }
+        loginImage.contentMode = .scaleAspectFit
         
         view.addSubview(firstNameField)
         firstNameField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(loginImage.snp.bottom).offset(80)
+            make.top.equalTo(loginImage.snp.bottom).offset(95)
             make.leading.trailing.equalToSuperview().inset(43)
-            make.height.equalTo(29)
         }
         
         view.addSubview(passwordField)
@@ -51,7 +52,6 @@ final class LoginViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(firstNameField.snp.bottom).offset(35)
             make.leading.trailing.equalToSuperview().inset(43)
-            make.height.equalTo(29)
         }
         
         view.addSubview(loginButton)

@@ -19,7 +19,8 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        showSingInScreen()
+//        showSingInScreen()
+        showFirstPage()
     }
 
     func showSingInScreen() {

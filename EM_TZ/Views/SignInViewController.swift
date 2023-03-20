@@ -20,8 +20,6 @@ final class SignInViewController: UIViewController {
     let signInButton = UIButton()
     let haveAnAccountlabel = UILabel()
     let loginButton = UIButton()
-    
-//    let customTF = CustomTextField(placeholder: "First name")
 
     init(viewModel: SignInViewModel) {
         self.viewModel = viewModel
@@ -40,15 +38,16 @@ final class SignInViewController: UIViewController {
         view.addSubview(signInImage)
         signInImage.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().inset(125)
+            make.top.equalToSuperview().inset(158.71)
+            make.leading.trailing.equalToSuperview().inset(43)
         }
+        signInImage.contentMode = .scaleAspectFit
         
         view.addSubview(firstNameField)
         firstNameField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(signInImage.snp.bottom).offset(77)
+            make.top.equalTo(signInImage.snp.bottom).offset(80)
             make.leading.trailing.equalToSuperview().inset(43)
-            make.height.equalTo(29)
         }
         
         view.addSubview(lastNameField)
@@ -56,7 +55,6 @@ final class SignInViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(firstNameField.snp.bottom).offset(35)
             make.leading.trailing.equalToSuperview().inset(43)
-            make.height.equalTo(29)
         }
         
         view.addSubview(emailField)
@@ -64,7 +62,6 @@ final class SignInViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(lastNameField.snp.bottom).offset(35)
             make.leading.trailing.equalToSuperview().inset(43)
-            make.height.equalTo(29)
         }
         
         view.addSubview(signInButton)
