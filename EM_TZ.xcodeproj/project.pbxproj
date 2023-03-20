@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		906D393F29C6574B00065D71 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906D392929C6574B00065D71 /* Montserrat-Medium.ttf */; };
+		906D394129C6574B00065D71 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906D392B29C6574B00065D71 /* Montserrat-Light.ttf */; };
+		906D394429C6574B00065D71 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906D392E29C6574B00065D71 /* Montserrat-Thin.ttf */; };
+		906D394529C6574B00065D71 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906D392F29C6574B00065D71 /* Montserrat-Bold.ttf */; };
+		906D394C29C6574B00065D71 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906D393629C6574B00065D71 /* Montserrat-Regular.ttf */; };
 		9072B90929C22404001B3DF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9072B90829C22404001B3DF0 /* AppDelegate.swift */; };
 		9072B90D29C22404001B3DF0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9072B90C29C22404001B3DF0 /* SignInViewController.swift */; };
 		9072B91229C22405001B3DF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9072B91129C22405001B3DF0 /* Assets.xcassets */; };
@@ -24,9 +29,16 @@
 		9088094729C3A34C0061EF2E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088094629C3A34C0061EF2E /* HomeViewController.swift */; };
 		9088095629C61D6A0061EF2E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088095529C61D6A0061EF2E /* NetworkService.swift */; };
 		9088095B29C62C250061EF2E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088095A29C62C250061EF2E /* Models.swift */; };
+		9088096129C642BE0061EF2E /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088096029C642BE0061EF2E /* Dynamic.swift */; };
+		9088096429C64E900061EF2E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9088096329C64E900061EF2E /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		906D392929C6574B00065D71 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		906D392B29C6574B00065D71 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		906D392E29C6574B00065D71 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		906D392F29C6574B00065D71 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		906D393629C6574B00065D71 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		9072B90529C22404001B3DF0 /* EM_TZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EM_TZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9072B90829C22404001B3DF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9072B90C29C22404001B3DF0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +58,7 @@
 		9088094629C3A34C0061EF2E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9088095529C61D6A0061EF2E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9088095A29C62C250061EF2E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		9088096029C642BE0061EF2E /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +66,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9088096429C64E900061EF2E /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		906D392429C6574B00065D71 /* Montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				906D392929C6574B00065D71 /* Montserrat-Medium.ttf */,
+				906D392B29C6574B00065D71 /* Montserrat-Light.ttf */,
+				906D392E29C6574B00065D71 /* Montserrat-Thin.ttf */,
+				906D392F29C6574B00065D71 /* Montserrat-Bold.ttf */,
+				906D393629C6574B00065D71 /* Montserrat-Regular.ttf */,
+			);
+			name = Montserrat;
+			path = ../../../../Downloads/Montserrat;
+			sourceTree = "<group>";
+		};
 		9072B8FC29C22404001B3DF0 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +118,7 @@
 		9072B91C29C22483001B3DF0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				906D392429C6574B00065D71 /* Montserrat */,
 				9072B91129C22405001B3DF0 /* Assets.xcassets */,
 				9072B91329C22405001B3DF0 /* LaunchScreen.storyboard */,
 				9072B91629C22405001B3DF0 /* Info.plist */,
@@ -151,6 +179,7 @@
 			children = (
 				9088090C29C250A20061EF2E /* SignInViewModel.swift */,
 				9088091229C27EDB0061EF2E /* LoginViewModel.swift */,
+				90E3E7FD29C89A1300D4D969 /* Bindings */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -172,6 +201,14 @@
 			path = NerworkService;
 			sourceTree = "<group>";
 		};
+		90E3E7FD29C89A1300D4D969 /* Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				9088096029C642BE0061EF2E /* Dynamic.swift */,
+			);
+			path = Bindings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,6 +225,9 @@
 			dependencies = (
 			);
 			name = EM_TZ;
+			packageProductDependencies = (
+				9088096329C64E900061EF2E /* SnapKit */,
+			);
 			productName = EM_TZ;
 			productReference = 9072B90529C22404001B3DF0 /* EM_TZ.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +256,9 @@
 				Base,
 			);
 			mainGroup = 9072B8FC29C22404001B3DF0;
+			packageReferences = (
+				9088096229C64E900061EF2E /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 9072B90629C22404001B3DF0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,6 +274,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9072B91529C22405001B3DF0 /* LaunchScreen.storyboard in Resources */,
+				906D394C29C6574B00065D71 /* Montserrat-Regular.ttf in Resources */,
+				906D394129C6574B00065D71 /* Montserrat-Light.ttf in Resources */,
+				906D394429C6574B00065D71 /* Montserrat-Thin.ttf in Resources */,
+				906D394529C6574B00065D71 /* Montserrat-Bold.ttf in Resources */,
+				906D393F29C6574B00065D71 /* Montserrat-Medium.ttf in Resources */,
 				9072B91229C22405001B3DF0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +303,7 @@
 				9088091329C27EDB0061EF2E /* LoginViewModel.swift in Sources */,
 				9088090D29C250A20061EF2E /* SignInViewModel.swift in Sources */,
 				9088090B29C234970061EF2E /* User+CoreDataProperties.swift in Sources */,
+				9088096129C642BE0061EF2E /* Dynamic.swift in Sources */,
 				9088094729C3A34C0061EF2E /* HomeViewController.swift in Sources */,
 				9072B90929C22404001B3DF0 /* AppDelegate.swift in Sources */,
 			);
@@ -470,6 +519,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9088096229C64E900061EF2E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9088096329C64E900061EF2E /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9088096229C64E900061EF2E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		9088090129C233D40061EF2E /* Model.xcdatamodeld */ = {

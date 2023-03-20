@@ -11,6 +11,7 @@ final class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.backgroundColor = .red
         
         viewControllers = [
             createNavigationController(rootViewController: UIViewController(), title: "Home"),

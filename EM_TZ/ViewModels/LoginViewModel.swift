@@ -11,6 +11,7 @@ final class LoginViewModel {
     
     var coordinator: AppCoordinator
     var coreDataStore: CoreDataStore
+    var userStatusText = Dynamic("")
     
     init(coordinator: AppCoordinator,
          coreDataStore: CoreDataStore) {
@@ -19,11 +20,10 @@ final class LoginViewModel {
     }
     
     func loginButtonPressed(name: String) {
-        
         if coreDataStore.isUserRegistered(name: name) {
             coordinator.showFirstPage()
         } else {
-            print("!isUserRegistered")
+            userStatusText.value = "There is no such user"
         }
     }
 }

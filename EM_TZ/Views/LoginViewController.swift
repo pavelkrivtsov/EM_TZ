@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import SnapKit
 
 final class LoginViewController: UIViewController {
     
     var viewModel: LoginViewModel
+    let userStatusLabel = UILabel()
     
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -20,7 +22,7 @@ final class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let loginLabel = UILabel()
+    let loginImage = UIImageView(image: UIImage(named: "WelcomeBack"))
     var firstNameField = UITextField()
     var passwordField = UITextField()
     var loginButton = UIButton()
@@ -29,58 +31,66 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        view.addSubview(loginLabel)
-        loginLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 125),
-        ])
-        loginLabel.text = "Welcome back"
-        loginLabel.font = .boldSystemFont(ofSize: 35)
-        loginLabel.textAlignment = .center
+        view.addSubview(loginImage)
+        loginImage.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(125)
+        }
         
         view.addSubview(firstNameField)
-        firstNameField.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            firstNameField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 77),
-            firstNameField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            firstNameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
-            firstNameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -43),
-            firstNameField.heightAnchor.constraint(equalToConstant: 29)
-        ])
+        firstNameField.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(loginImage.snp.bottom).offset(80)
+            make.leading.trailing.equalToSuperview().inset(43)
+            make.height.equalTo(29)
+        }
         firstNameField.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1)
         firstNameField.placeholder = "First name"
         firstNameField.textAlignment = .center
         
         view.addSubview(passwordField)
-        passwordField.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            passwordField.topAnchor.constraint(equalTo: firstNameField.bottomAnchor, constant: 35),
-            passwordField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
-            passwordField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -43),
-            passwordField.heightAnchor.constraint(equalToConstant: 29)
-        ])
+        passwordField.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(firstNameField.snp.bottom).offset(35)
+            make.leading.trailing.equalToSuperview().inset(43)
+            make.height.equalTo(29)
+        }
         passwordField.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1)
         passwordField.placeholder = "Second name"
         passwordField.textAlignment = .center
         
         view.addSubview(loginButton)
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
-            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -43),
-            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 99),
-            loginButton.heightAnchor.constraint(equalToConstant: 46),
-        ])
+        loginButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(43)
+            make.top.equalTo(passwordField.snp.bottom).offset(99)
+            make.height.equalTo(46)
+        }
         loginButton.layer.backgroundColor = UIColor(red: 0.306, green: 0.333, blue: 0.843, alpha: 1).cgColor
-        loginButton.setTitle("Sign in", for: .normal)
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.titleLabel?.font = .init(name: "Montserrat-Bold", size: 15)
         loginButton.layer.cornerRadius = 15
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         view.addGestureRecognizer(tapRecognizer)
+        
+        view.addSubview(userStatusLabel)
+        userStatusLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(firstNameField)
+            make.bottom.equalTo(firstNameField.snp.top)
+            make.top.equalTo(loginImage.snp.bottom)
+        }
+        userStatusLabel.textAlignment = .center
+        userStatusLabel.textColor = .red
+        
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        viewModel.userStatusText.bind { [weak self] text in
+            self?.userStatusLabel.text = text
+        }
     }
     
     @objc
@@ -95,5 +105,4 @@ final class LoginViewController: UIViewController {
             viewModel.loginButtonPressed(name: firstName)
         }
     }
-    
 }

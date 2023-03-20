@@ -19,8 +19,7 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-//        showSingInScreen()
-        showFirstPage()
+        showSingInScreen()
     }
 
     func showSingInScreen() {
@@ -37,7 +36,7 @@ final class AppCoordinator: Coordinator {
     }
     
     func showFirstPage() {
-        let vc = HomeViewController()
+        let vc = TabBarViewController()
         navigationController.navigationBar.isHidden = true
         navigationController.pushViewController(vc, animated: false)
     }
