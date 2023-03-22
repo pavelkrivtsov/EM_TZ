@@ -7,13 +7,11 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
     private let networkService = NetworkService()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     private var sections = [Section]()
-    private var latest = [LatestElement]()
-    private var flashSale = [FlashSaleElement]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +21,9 @@ class HomeViewController: UIViewController {
         collectionView.frame = view.bounds
         collectionView.collectionViewLayout = createCompositionalLayout()
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.register(SectionHeader.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: SectionHeader.reuseId)
         collectionView.register(LatestCell.self, forCellWithReuseIdentifier: LatestCell.reuseId)
         collectionView.register(FlashSaleCell.self, forCellWithReuseIdentifier: FlashSaleCell.reuseId)
         collectionView.delegate = self
@@ -92,6 +93,19 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         return UICollectionViewCell()
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                        withReuseIdentifier: SectionHeader.reuseId,
+                                                                        for: indexPath) as? SectionHeader {
+            header.configure(name: "Latest")
+            return header
+        }
+        return UICollectionReusableView()
+    }
 }
 
 //  MARK: - CompositionalLayout
@@ -114,14 +128,24 @@ extension HomeViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(114),
                                               heightDimension: .absolute(149))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
         let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(1),
                                                heightDimension: .estimated(1))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 11, bottom: 0, trailing: 11)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 11, bottom: 22, trailing: 11)
         section.interGroupSpacing = CGFloat(12)
         section.orthogonalScrollingBehavior = .continuous
-        //        TODO: - Create Header
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                heightDimension: .estimated(16))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top)
+        section.boundarySupplementaryItems = [sectionHeader]
+        
         return section
     }
     
@@ -129,14 +153,24 @@ extension HomeViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(174),
                                               heightDimension: .absolute(221))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
         let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(1),
                                                heightDimension: .estimated(1))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 11, bottom: 0, trailing: 11)
-        section.interGroupSpacing = CGFloat(12)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 11, bottom: 22, trailing: 11)
+        section.interGroupSpacing = CGFloat(9)
         section.orthogonalScrollingBehavior = .continuous
-        //        TODO: - Create Header
+   
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                heightDimension: .absolute(16))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top)
+        section.boundarySupplementaryItems = [sectionHeader]
+        
         return section
     }
 }

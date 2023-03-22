@@ -9,7 +9,7 @@ import UIKit
 
 extension UIColor {
     static var mainWhite: UIColor {
-        UIColor(red: 250/255, green: 249/255, blue: 250/255, alpha: 1)
+        UIColor(red: 0.98, green: 0.976, blue: 1, alpha: 1)
     }
     static var tabBar: UIColor {
         UIColor(red: 1, green: 1, blue: 1, alpha: 1)

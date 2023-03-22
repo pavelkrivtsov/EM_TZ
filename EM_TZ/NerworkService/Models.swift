@@ -15,7 +15,7 @@ struct Latest: Decodable {
 // MARK: - ProductsElement
 struct LatestElement: Decodable {
     let category, name: String
-    let price: Double
+    let price: Float
     let imageURL: String
 
     enum CodingKeys: String, CodingKey {
@@ -36,7 +36,7 @@ struct FlashSale: Decodable {
 // MARK: - FlashSaleElement
 struct FlashSaleElement: Decodable {
     let category, name: String
-    let price: Double
+    let price: Float
     let discount: Int
     let imageURL: String
 
@@ -60,7 +60,7 @@ struct Section {
 struct ProductsElement{
     let category: String
     let name: String
-    let price: Double
+    let price: Float
     let discount: Int?
     let imageURL: String
 }

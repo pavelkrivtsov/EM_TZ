@@ -25,19 +25,19 @@ final class TabBarViewController: UITabBarController {
                 image: UIImage(named: "home")
             ),
             generateVC(
-                viewController: HomeViewController(),
+                viewController: UIViewController(),
                 image: UIImage(named: "favourites")
             ),
             generateVC(
-                viewController: HomeViewController(),
+                viewController: UIViewController(),
                 image: UIImage(named: "cart")
             ),
             generateVC(
-                viewController: HomeViewController(),
+                viewController: UIViewController(),
                 image: UIImage(named: "chat")
             ),
             generateVC(
-                viewController: HomeViewController(),
+                viewController: UIViewController(),
                 image: UIImage(named: "profile")
             ),
         ]
