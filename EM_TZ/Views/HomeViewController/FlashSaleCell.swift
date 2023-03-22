@@ -1,5 +1,5 @@
 //
-//  LatestCell.swift
+//  FlashSaleCell.swift
 //  EM_TZ
 //
 //  Created by Pavel Krivtsov on 22.03.2023.
@@ -8,18 +8,19 @@
 import UIKit
 import SnapKit
 
-final class LatestCell: UICollectionViewCell {
+final class FlashSaleCell: UICollectionViewCell {
     
-    static let reuseId = "LatestCell"
+    static var reuseId = "FlashSaleCell"
     
     private var category = UILabel()
     private var name = UILabel()
     private var price = UILabel()
+    private var discount = UILabel()
 //    private var imageURL = String()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .brown
+        contentView.backgroundColor = .green
         
         contentView.addSubview(category)
         category.snp.makeConstraints { make in
@@ -42,8 +43,6 @@ final class LatestCell: UICollectionViewCell {
             make.leading.bottom.equalToSuperview().inset(7)
         }
         price.backgroundColor = .red
-        
-        
     }
     
     @available(*, unavailable)
@@ -52,7 +51,7 @@ final class LatestCell: UICollectionViewCell {
     }
 }
 
-extension LatestCell {
+extension FlashSaleCell {
     func configure(item: ProductsElement) {
         self.category.text = item.category
         self.name.text = item.name

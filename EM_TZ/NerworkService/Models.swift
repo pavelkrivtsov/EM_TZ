@@ -12,10 +12,10 @@ struct Latest: Decodable {
     let latest: [LatestElement]
 }
 
-// MARK: - LatestElement
+// MARK: - ProductsElement
 struct LatestElement: Decodable {
     let category, name: String
-    let price: Int
+    let price: Double
     let imageURL: String
 
     enum CodingKeys: String, CodingKey {
@@ -44,4 +44,23 @@ struct FlashSaleElement: Decodable {
         case category, name, price, discount
         case imageURL = "image_url"
     }
+}
+
+// MARK: - Section
+struct Section {
+    let sectionHeaderName: String
+    var items: [ProductsElement]
+    
+    init(header name: String, items: [ProductsElement]) {
+        sectionHeaderName = name
+        self.items = items
+    }
+}
+// MARK: - ProductsElement
+struct ProductsElement{
+    let category: String
+    let name: String
+    let price: Double
+    let discount: Int?
+    let imageURL: String
 }
