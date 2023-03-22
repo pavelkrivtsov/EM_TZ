@@ -19,6 +19,7 @@
 		9072B91E29C22BA1001B3DF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9072B91D29C22BA1001B3DF0 /* LoginViewController.swift */; };
 		9072B92329C22D2E001B3DF0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9072B92229C22D2E001B3DF0 /* AppCoordinator.swift */; };
 		9072B92529C22D39001B3DF0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9072B92429C22D39001B3DF0 /* Coordinator.swift */; };
+		90833C1929CB42C9004D8485 /* LatestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90833C1829CB42C9004D8485 /* LatestCell.swift */; };
 		908808FD29C232570061EF2E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908808FC29C232570061EF2E /* TabBarViewController.swift */; };
 		9088090029C233BE0061EF2E /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908808FF29C233BE0061EF2E /* CoreDataStore.swift */; };
 		9088090329C233D40061EF2E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9088090129C233D40061EF2E /* Model.xcdatamodeld */; };
@@ -50,6 +51,7 @@
 		9072B91D29C22BA1001B3DF0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9072B92229C22D2E001B3DF0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9072B92429C22D39001B3DF0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		90833C1829CB42C9004D8485 /* LatestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCell.swift; sourceTree = "<group>"; };
 		908808FC29C232570061EF2E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		908808FF29C233BE0061EF2E /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 		9088090229C233D40061EF2E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				9088094629C3A34C0061EF2E /* HomeViewController.swift */,
+				90833C1829CB42C9004D8485 /* LatestCell.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				908808FD29C232570061EF2E /* TabBarViewController.swift in Sources */,
 				9088095629C61D6A0061EF2E /* NetworkService.swift in Sources */,
 				9088091329C27EDB0061EF2E /* LoginViewModel.swift in Sources */,
+				90833C1929CB42C9004D8485 /* LatestCell.swift in Sources */,
 				9088090D29C250A20061EF2E /* SignInViewModel.swift in Sources */,
 				9088090B29C234970061EF2E /* User+CoreDataProperties.swift in Sources */,
 				9088096129C642BE0061EF2E /* Dynamic.swift in Sources */,

@@ -15,7 +15,7 @@ final class TabBarViewController: UITabBarController {
      }
     
     override func viewDidLayoutSubviews() {
-  setTabBarAppearance()
+        setTabBarAppearance()
     }
     
     private func generateTabBar() {
@@ -43,10 +43,11 @@ final class TabBarViewController: UITabBarController {
         ]
     }
     
-    private func generateVC(viewController: UIViewController, image: UIImage?) -> UIViewController {
+    private func generateVC(viewController: UIViewController, image: UIImage?) -> UINavigationController {
         viewController.tabBarItem.image = image
         viewController.tabBarItem.imageInsets = UIEdgeInsets(top: 6.0, left: 0.0, bottom: -6.0, right: 0.0)
-        return viewController
+        let nc = UINavigationController(rootViewController: viewController)
+        return nc
     }
     
     private func setTabBarAppearance() {
@@ -54,15 +55,15 @@ final class TabBarViewController: UITabBarController {
         tabBar.layer.masksToBounds = true
         tabBar.layer.cornerRadius = 30
         tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-
-        tabBar.backgroundColor = UIColor.mainWhite
+        
+        tabBar.backgroundColor = UIColor.tabBar
         tabBar.tintColor = .tabBarItemAccent
         tabBar.unselectedItemTintColor = .tabBarItemLight
         tabBar.selectionIndicatorImage = .init(named: "backgroundCircle")
-
+        
         tabBar.bounds = .init(x: tabBar.bounds.minX,
-                             y: tabBar.bounds.minY,
-                             width: tabBar.bounds.width,
-                             height: tabBar.bounds.height + 13)
+                              y: tabBar.bounds.minY,
+                              width: tabBar.bounds.width,
+                              height: tabBar.bounds.height + 13)
     }
 }
