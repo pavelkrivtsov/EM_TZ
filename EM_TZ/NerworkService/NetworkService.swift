@@ -123,25 +123,23 @@ extension NetworkService {
         var sections = [Section]()
         
         group.enter()
-        DispatchQueue.global().async {
-            self.fetchLatest { result in
-                switch result {
-                case .success(let latestArray):
-                    var items = [ProductsElement]()
-                    for item in latestArray {
-                        let product = ProductsElement(category: item.category,
-                                                      name: item.name,
-                                                      price: Float(item.price),
-                                                      discount: nil,
-                                                      imageURL: item.imageURL)
-                        items.append(product)
-                    }
-                    sections.append(Section(sectionHeaderName: "Latest", items: items))
-                case .failure(let failure):
-                    print(failure.localizedDescription)
+        self.fetchLatest { result in
+            switch result {
+            case .success(let latestArray):
+                var items = [ProductsElement]()
+                for item in latestArray {
+                    let product = ProductsElement(category: item.category,
+                                                  name: item.name,
+                                                  price: Float(item.price),
+                                                  discount: nil,
+                                                  imageURL: item.imageURL)
+                    items.append(product)
                 }
-                group.leave()
+                sections.append(Section(sectionHeaderName: "Latest", items: items))
+            case .failure(let failure):
+                print(failure.localizedDescription)
             }
+            group.leave()
         }
         
         group.enter()
