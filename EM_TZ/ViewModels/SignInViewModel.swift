@@ -9,8 +9,8 @@ import Foundation
 
 final class SignInViewModel {
     
-    var coordinator: AppCoordinator
-    var coreDataStore: CoreDataStore
+    private var coordinator: AppCoordinator
+    private var coreDataStore: CoreDataStore
     var userStatusText = Dynamic("")
     
     init(coordinator: AppCoordinator,
@@ -18,6 +18,18 @@ final class SignInViewModel {
         self.coordinator = coordinator
         self.coreDataStore = coreDataStore
     }
+    
+    private func isInvalidEmail(_ value: String) -> Bool {
+        let reqularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
+        if !predicate.evaluate(with: value) {
+            return true
+        }
+        return false
+    }
+}
+
+extension SignInViewModel {
     
     func signInButtonPressed(firstName: String?, lastName: String?, email: String?) {
         
@@ -37,15 +49,6 @@ final class SignInViewModel {
         } else {
             userStatusText.value = "Fill in the fields"
         }
-    }
-    
-    func isInvalidEmail(_ value: String) -> Bool {
-        let reqularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
-        if !predicate.evaluate(with: value) {
-            return true
-        }
-        return false
     }
     
     func loginButtonPressed() {
