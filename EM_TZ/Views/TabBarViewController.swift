@@ -9,6 +9,10 @@ import UIKit
 
 final class TabBarViewController: UITabBarController {
     
+    private var networkService = NetworkService()
+    private lazy var homeViewModel = HomeViewModel(networkService: networkService)
+    
+    
     override func viewDidLoad() {
          super.viewDidLoad()
          generateTabBar()
@@ -21,7 +25,7 @@ final class TabBarViewController: UITabBarController {
     private func generateTabBar() {
         viewControllers = [
             generateVC(
-                viewController: HomeViewController(),
+                viewController: HomeViewController(viewModel: homeViewModel),
                 image: UIImage(named: "home")
             ),
             generateVC(
