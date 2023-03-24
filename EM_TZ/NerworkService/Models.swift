@@ -5,7 +5,7 @@
 //  Created by Pavel Krivtsov on 18.03.2023.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - Latest
 struct Latest: Decodable {
@@ -15,7 +15,7 @@ struct Latest: Decodable {
 // MARK: - ProductsElement
 struct LatestElement: Decodable {
     let category, name: String
-    let price: Float
+    let price: Int
     let imageURL: String
 
     enum CodingKeys: String, CodingKey {
@@ -50,11 +50,6 @@ struct FlashSaleElement: Decodable {
 struct Section {
     let sectionHeaderName: String
     var items: [ProductsElement]
-    
-    init(header name: String, items: [ProductsElement]) {
-        sectionHeaderName = name
-        self.items = items
-    }
 }
 // MARK: - ProductsElement
 struct ProductsElement{
