@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9017AC8F29CCBD9B00A567ED /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017AC8E29CCBD9B00A567ED /* HomeViewModel.swift */; };
 		906D393F29C6574B00065D71 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906D392929C6574B00065D71 /* Montserrat-Medium.ttf */; };
 		906D394129C6574B00065D71 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906D392B29C6574B00065D71 /* Montserrat-Light.ttf */; };
 		906D394429C6574B00065D71 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906D392E29C6574B00065D71 /* Montserrat-Thin.ttf */; };
@@ -34,11 +35,13 @@
 		9088095B29C62C250061EF2E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088095A29C62C250061EF2E /* Models.swift */; };
 		9088096129C642BE0061EF2E /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088096029C642BE0061EF2E /* Dynamic.swift */; };
 		9088096429C64E900061EF2E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9088096329C64E900061EF2E /* SnapKit */; };
+		90B0A1FF29CE2FA80020604A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 90B0A1FE29CE2FA80020604A /* Kingfisher */; };
 		90E3E7FF29C8A46400D4D969 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E3E7FE29C8A46400D4D969 /* CustomTextField.swift */; };
 		90E3E80429C8FDAD00D4D969 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E3E80329C8FDAD00D4D969 /* UIColor + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9017AC8E29CCBD9B00A567ED /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		906D392929C6574B00065D71 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		906D392B29C6574B00065D71 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		906D392E29C6574B00065D71 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
@@ -76,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B0A1FF29CE2FA80020604A /* Kingfisher in Frameworks */,
 				9088096429C64E900061EF2E /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +194,7 @@
 			children = (
 				9088090C29C250A20061EF2E /* SignInViewModel.swift */,
 				9088091229C27EDB0061EF2E /* LoginViewModel.swift */,
+				9017AC8E29CCBD9B00A567ED /* HomeViewModel.swift */,
 				90E3E7FD29C89A1300D4D969 /* Bindings */,
 			);
 			path = ViewModels;
@@ -250,6 +255,7 @@
 			name = EM_TZ;
 			packageProductDependencies = (
 				9088096329C64E900061EF2E /* SnapKit */,
+				90B0A1FE29CE2FA80020604A /* Kingfisher */,
 			);
 			productName = EM_TZ;
 			productReference = 9072B90529C22404001B3DF0 /* EM_TZ.app */;
@@ -281,6 +287,7 @@
 			mainGroup = 9072B8FC29C22404001B3DF0;
 			packageReferences = (
 				9088096229C64E900061EF2E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				90B0A1FD29CE2FA80020604A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 9072B90629C22404001B3DF0 /* Products */;
 			projectDirPath = "";
@@ -314,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9088090029C233BE0061EF2E /* CoreDataStore.swift in Sources */,
+				9017AC8F29CCBD9B00A567ED /* HomeViewModel.swift in Sources */,
 				9072B92329C22D2E001B3DF0 /* AppCoordinator.swift in Sources */,
 				9072B91E29C22BA1001B3DF0 /* LoginViewController.swift in Sources */,
 				9088090329C233D40061EF2E /* Model.xcdatamodeld in Sources */,
@@ -557,6 +565,14 @@
 				kind = branch;
 			};
 		};
+		90B0A1FD29CE2FA80020604A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -564,6 +580,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9088096229C64E900061EF2E /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		90B0A1FE29CE2FA80020604A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90B0A1FD29CE2FA80020604A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 
