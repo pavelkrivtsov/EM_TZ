@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class FlashSaleCell: UICollectionViewCell {
     
@@ -15,7 +16,7 @@ final class FlashSaleCell: UICollectionViewCell {
     private var categoryLabel = UILabel()
     private var nameLabel = UILabel()
     private var priceLabel = UILabel()
-//    private var imageURL = String()
+    private var imageView = UIImageView()
     private var addToCartButton = UIButton()
     private var addToFavouritesButton = UIButton()
     private var marketImage = UIImageView(image: .init(named: "marketImage"))
@@ -25,7 +26,12 @@ final class FlashSaleCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.backgroundColor = .gray
         contentView.layer.cornerRadius = 12
+        contentView.clipsToBounds = true
         
+        contentView.addSubview(imageView)
+        imageView.frame = contentView.bounds
+        imageView.contentMode = .scaleAspectFill
+//        
         contentView.addSubview(addToCartButton)
         addToCartButton.snp.makeConstraints { make in
             make.width.height.equalTo(35)
@@ -106,15 +112,26 @@ final class FlashSaleCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.categoryLabel.text = ""
+        self.nameLabel.text = ""
+        self.priceLabel.text = ""
+        self.discountLabel.text = ""
+        self.imageView.image = nil
+    }
 }
 
 extension FlashSaleCell {
     func configure(item: ProductsElement) {
-        guard let discount = item.discount else { return }
+        guard let url = URL(string: item.imageURL),
+              let discount = item.discount else { return }
         self.categoryLabel.text = item.category
         self.nameLabel.text = item.name
         let doubleStr = String(format: "%.2f", item.price)
         self.priceLabel.text = "$ \(doubleStr)"
         self.discountLabel.text = "\(discount)% off"
+        self.imageView.kf.setImage(with: url)
     }
 }

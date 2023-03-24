@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class LatestCell: UICollectionViewCell {
     
@@ -16,12 +17,17 @@ final class LatestCell: UICollectionViewCell {
     private var nameLabel = UILabel()
     private var priceLabel = UILabel()
     private var addToCartButton = UIButton()
-//    private var imageURL = String()
+    private var imageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .gray
         contentView.layer.cornerRadius = 12
+        contentView.clipsToBounds = true
+        
+        contentView.addSubview(imageView)
+        imageView.frame = contentView.bounds
+        imageView.contentMode = .scaleAspectFill
         
         contentView.addSubview(addToCartButton)
         addToCartButton.snp.makeConstraints { make in
@@ -53,7 +59,7 @@ final class LatestCell: UICollectionViewCell {
         categoryLabel.clipsToBounds = true
         categoryLabel.font = .init(name: "Montserrat-Bold", size: 6)
         categoryLabel.textAlignment = .center
-        
+//        
         contentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel.snp.bottom).inset(-6)
@@ -71,13 +77,23 @@ final class LatestCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.categoryLabel.text = ""
+        self.nameLabel.text = ""
+        self.priceLabel.text = ""
+        self.imageView.image = nil
+    }
 }
 
 extension LatestCell {
     func configure(item: ProductsElement) {
+        guard let url = URL(string: item.imageURL) else { return }
         self.categoryLabel.text = item.category
         self.nameLabel.text = item.name
         let doubleStr = String(format: "%.2f", item.price)
         self.priceLabel.text = "$ \(doubleStr)"
+        self.imageView.kf.setImage(with: url)
     }
 }
