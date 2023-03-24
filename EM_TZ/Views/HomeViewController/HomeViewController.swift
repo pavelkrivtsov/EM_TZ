@@ -9,14 +9,32 @@ import UIKit
 
 final class HomeViewController: UIViewController {
 
-    private let networkService = NetworkService()
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    private var viewModel: HomeViewModel
     private var sections = [Section]()
+
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.mainWhite
+    
+        viewModel.fetchProducts()
+        bindViewModel()
         
+        setupNavBar()
+        setupCollectionView()
+    }
+    
+    private func setupCollectionView() {
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
         collectionView.collectionViewLayout = createCompositionalLayout()
@@ -28,37 +46,19 @@ final class HomeViewController: UIViewController {
         collectionView.register(FlashSaleCell.self, forCellWithReuseIdentifier: FlashSaleCell.reuseId)
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        networkService.fetchLatest { [weak self] latest in
-            guard let self = self else { return }
-            var section = Section(header: "Latest", items: [])
-            for item in latest {
-                let product = ProductsElement(category: item.category,
-                                              name: item.name,
-                                              price: item.price,
-                                              discount: nil,
-                                              imageURL: item.imageURL)
-                section.items.append(product)
+    }
+    
+    private func bindViewModel() {
+        viewModel.sections.bind { [weak self] sections in
+            
+            DispatchQueue.main.async {
+                self?.sections = sections
+                self?.collectionView.reloadData()
             }
-            self.sections.append(section)
-            self.collectionView.reloadData()
-        }
-        
-        networkService.fetchFlashSale { [weak self] flashSale in
-            guard let self = self else { return }
-            var section = Section(header: "Flash Sale", items: [])
-            for item in flashSale {
-                let product = ProductsElement(category: item.category,
-                                              name: item.name,
-                                              price: item.price,
-                                              discount: item.discount,
-                                              imageURL: item.imageURL)
-                section.items.append(product)
-            }
-            self.sections.append(section)
-            self.collectionView.reloadData()
+            
         }
     }
+    
 }
 
 //  MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -98,10 +98,19 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
         
-        if let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                        withReuseIdentifier: SectionHeader.reuseId,
-                                                                        for: indexPath) as? SectionHeader {
-            header.configure(name: "Latest")
+        if indexPath.section == 0,
+           let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                           withReuseIdentifier: SectionHeader.reuseId,
+                                                                           for: indexPath) as? SectionHeader {
+            header.configure(name: sections[indexPath.section].sectionHeaderName)
+            return header
+        }
+        
+        if indexPath.section == 1,
+           let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                           withReuseIdentifier: SectionHeader.reuseId,
+                                                                           for: indexPath) as? SectionHeader {
+            header.configure(name: sections[indexPath.section].sectionHeaderName)
             return header
         }
         return UICollectionReusableView()
@@ -172,5 +181,21 @@ extension HomeViewController {
         section.boundarySupplementaryItems = [sectionHeader]
         
         return section
+    }
+}
+
+extension HomeViewController {
+    
+    private func setupNavBar() {
+        let image = UIImageView.init(image: .init(named: "leftItemPage1"))
+        let leftBarButtonItem = UIBarButtonItem(customView: image)
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+        navigationItem.titleView = UIImageView(image: .init(named: "titlePage1"))
+        
+        let customView = UIImageView.init(image: .init(named: "barButtonProfileIcon"))
+        let rightBarButtonItem = UIBarButtonItem(customView: customView)
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+        
+        navigationItem.searchController = UISearchController()
     }
 }
