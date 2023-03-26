@@ -34,7 +34,7 @@ final class LatestCell: UICollectionViewCell {
             make.trailing.bottom.equalToSuperview().inset(5)
             make.height.width.equalTo(20)
         }
-        addToCartButton.setImage(.add, for: .normal)
+        addToCartButton.setImage(.init(named: "addButton"), for: .normal)
         
         contentView.addSubview(priceLabel)
         priceLabel.snp.makeConstraints { make in
@@ -42,7 +42,6 @@ final class LatestCell: UICollectionViewCell {
             make.bottom.equalToSuperview().inset(7.06)
             make.trailing.equalTo(addToCartButton.snp.leading).inset(-5)
         }
-        priceLabel.backgroundColor = .red
         priceLabel.font = .init(name: "Montserrat-Bold", size: 10)
         priceLabel.textColor = .white
         
@@ -65,7 +64,6 @@ final class LatestCell: UICollectionViewCell {
             make.leading.equalToSuperview().inset(7)
             make.width.equalTo(priceLabel.snp.width)
         }
-        nameLabel.backgroundColor = .darkGray
         nameLabel.font = .init(name: "Montserrat-Bold", size: 10)
         nameLabel.numberOfLines = 0
         nameLabel.textColor = .white

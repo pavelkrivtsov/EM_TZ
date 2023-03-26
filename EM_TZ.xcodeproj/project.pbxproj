@@ -248,7 +248,6 @@
 				90B0A20829CF76A00020604A /* ProfileAssembly.swift */,
 				90B0A20029CF6EE90020604A /* ProfileViewCotroller.swift */,
 				90B0A20529CF76450020604A /* TableManager */,
-				90B0A20D29D068790020604A /* CellViews */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -257,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				90B0A20629CF76610020604A /* ProfileTableManager.swift */,
+				90B0A20D29D068790020604A /* CellViews */,
 				90B0A20A29D061D30020604A /* CellModels */,
 			);
 			path = TableManager;
@@ -279,7 +279,8 @@
 				90B0A21229D07C9E0020604A /* ArrowRightCell.swift */,
 				90B0A21429D08A510020604A /* WithoutArrowRightCell.swift */,
 			);
-			path = CellViews;
+			name = CellViews;
+			path = ../CellViews;
 			sourceTree = "<group>";
 		};
 		90E3E7FD29C89A1300D4D969 /* Bindings */ = {

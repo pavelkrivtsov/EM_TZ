@@ -1,5 +1,5 @@
 //
-//  AppCoordinator.swift
+//  AuthCoordinator.swift
 //  EM_TZ
 //
 //  Created by Pavel Krivtsov on 15.03.2023.
@@ -7,7 +7,14 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+protocol AuthCoordinatorProtocol {
+    func showSingInScreen()
+    func showLoginScreen()
+    func showFirstPage()
+    func popToRootViewController()
+}
+
+final class AuthCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     var coreDataStore: CoreDataStore
@@ -21,6 +28,9 @@ final class AppCoordinator: Coordinator {
     func start() {
         showSingInScreen()
     }
+}
+
+extension AuthCoordinator: AuthCoordinatorProtocol {
 
     func showSingInScreen() {
         let viewModel = SignInViewModel(coordinator: self, coreDataStore: coreDataStore)
@@ -36,8 +46,15 @@ final class AppCoordinator: Coordinator {
     }
     
     func showFirstPage() {
+//        let homeCoordinator = Hom
+        
+        
         let vc = TabBarViewController(coordinator: self)
         navigationController.navigationBar.isHidden = true
         navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func popToRootViewController() {
+        navigationController.popToRootViewController(animated: false)
     }
 }

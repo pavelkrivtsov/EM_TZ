@@ -38,8 +38,7 @@ final class FlashSaleCell: UICollectionViewCell {
             make.trailing.equalToSuperview().inset(4)
             make.bottom.equalToSuperview().inset(7)
         }
-        addToCartButton.setImage(.add, for: .normal)
-        addToCartButton.backgroundColor = .red
+        addToCartButton.setImage(.init(named: "addButton"), for: .normal)
         
         contentView.addSubview(addToFavouritesButton)
         addToFavouritesButton.snp.makeConstraints { make in
@@ -47,8 +46,7 @@ final class FlashSaleCell: UICollectionViewCell {
             make.trailing.equalTo(addToCartButton.snp.leading).offset(-5)
             make.centerY.equalTo(addToCartButton.snp.centerY)
         }
-        addToFavouritesButton.setImage(.actions, for: .normal)
-        addToFavouritesButton.backgroundColor = .blue
+        addToFavouritesButton.setImage(.init(named: "addToFavorites"), for: .normal)
         
         contentView.addSubview(priceLabel)
         priceLabel.snp.makeConstraints { make in
@@ -57,7 +55,6 @@ final class FlashSaleCell: UICollectionViewCell {
             make.trailing.equalTo(addToFavouritesButton.snp.leading).offset(-5)
             make.height.equalTo(14)
         }
-        priceLabel.backgroundColor = .red
         priceLabel.font = .init(name: "Montserrat-Bold", size: 14)
         priceLabel.textColor = .white
         
@@ -101,7 +98,6 @@ final class FlashSaleCell: UICollectionViewCell {
             make.leading.equalToSuperview().inset(10)
             make.width.equalTo(priceLabel.snp.width)
         }
-        nameLabel.backgroundColor = .darkGray
         nameLabel.font = .init(name: "Montserrat-Bold", size: 12)
         nameLabel.numberOfLines = 0
         nameLabel.textColor = .white
