@@ -9,7 +9,8 @@ import UIKit
 
 final class TabBarViewController: UITabBarController {
     
-    private var coordinator: AppCoordinatorProtocol
+    var coordinator: AppCoordinatorProtocol
+    let networkService = NetworkService()
     
     init(coordinator: AppCoordinatorProtocol) {
         self.coordinator = coordinator
@@ -33,7 +34,7 @@ final class TabBarViewController: UITabBarController {
     private func generateTabBar() {
         viewControllers = [
             generateVC(
-                viewController: HomeViewController(viewModel: HomeViewModel(networkService: NetworkService())),
+                viewController: HomeViewController(viewModel: HomeViewModel(networkService: networkService)),
                 image: UIImage(named: "home")
             ),
             generateVC(

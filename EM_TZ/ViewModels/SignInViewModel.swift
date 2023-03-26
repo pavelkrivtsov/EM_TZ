@@ -9,12 +9,12 @@ import Foundation
 
 final class SignInViewModel {
     
-    private let coordinator: AppCoordinatorProtocol
-    private var coreDataStore: CoreDataStore
+    private let coordinator: AuthCoordinatorProtocol
+    private var coreDataStore: CoreDataStoreProtocol
     var userStatusText = Dynamic("")
     
-    init(coordinator: AppCoordinatorProtocol,
-         coreDataStore: CoreDataStore) {
+    init(coordinator: AuthCoordinatorProtocol,
+         coreDataStore: CoreDataStoreProtocol) {
         self.coordinator = coordinator
         self.coreDataStore = coreDataStore
     }
@@ -43,7 +43,7 @@ extension SignInViewModel {
                 if coreDataStore.isUserRegistered(firstName: firstName, lastName: lastName, email: email) {
                     userStatusText.value = "The user already exists"
                 } else {
-                    coordinator.showFirstPage()
+                    coordinator.flowCompletionHeandler?()
                 }
             }
         } else {
@@ -52,6 +52,6 @@ extension SignInViewModel {
     }
     
     func loginButtonPressed() {
-        coordinator.showLoginScreen()
+        coordinator.goToLoginPage()
     }
 }

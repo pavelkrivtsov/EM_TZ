@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol NetworkServiceProtocol {
+    func fetchAllProducts(onCompletion: @escaping([Section]) -> Void)
+}
+
 final class NetworkService {
     
     enum NetworkResult<Error> {
@@ -108,7 +112,7 @@ final class NetworkService {
     
 }
 
-extension NetworkService {
+extension NetworkService: NetworkServiceProtocol {
     
     func fetchAllProducts(onCompletion: @escaping([Section]) -> Void) {
         

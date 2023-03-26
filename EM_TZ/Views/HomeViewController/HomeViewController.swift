@@ -28,14 +28,12 @@ final class HomeViewController: UIViewController {
     
         viewModel.fetchProducts()
         bindViewModel()
-//        setupNavBar()
-//        setupCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         setupNavBar()
         setupCollectionView()
+    }
+
+    deinit {
+        print("deinit")
     }
     
     private func setupCollectionView() {

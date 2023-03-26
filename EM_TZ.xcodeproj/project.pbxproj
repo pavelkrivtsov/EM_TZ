@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900D116229D0DD8E00ABCB41 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D116129D0DD8E00ABCB41 /* AuthCoordinator.swift */; };
 		9017AC8F29CCBD9B00A567ED /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017AC8E29CCBD9B00A567ED /* HomeViewModel.swift */; };
 		906D393F29C6574B00065D71 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906D392929C6574B00065D71 /* Montserrat-Medium.ttf */; };
 		906D394129C6574B00065D71 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906D392B29C6574B00065D71 /* Montserrat-Light.ttf */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		900D116129D0DD8E00ABCB41 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		9017AC8E29CCBD9B00A567ED /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		906D392929C6574B00065D71 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		906D392B29C6574B00065D71 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -177,26 +179,27 @@
 			isa = PBXGroup;
 			children = (
 				9072B90829C22404001B3DF0 /* AppDelegate.swift */,
-				9072B92129C22D1C001B3DF0 /* Coordinator */,
+				9072B92129C22D1C001B3DF0 /* Coordinators */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		9072B92129C22D1C001B3DF0 /* Coordinator */ = {
+		9072B92129C22D1C001B3DF0 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				9072B92629C22D3D001B3DF0 /* Protocols */,
+				9072B92629C22D3D001B3DF0 /* Protocol */,
 				9072B92229C22D2E001B3DF0 /* AppCoordinator.swift */,
+				900D116129D0DD8E00ABCB41 /* AuthCoordinator.swift */,
 			);
-			path = Coordinator;
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
-		9072B92629C22D3D001B3DF0 /* Protocols */ = {
+		9072B92629C22D3D001B3DF0 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
 				9072B92429C22D39001B3DF0 /* Coordinator.swift */,
 			);
-			path = Protocols;
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		908808FE29C233AC0061EF2E /* CoreDataStore */ = {
@@ -411,6 +414,7 @@
 				90B0A20929CF76A00020604A /* ProfileAssembly.swift in Sources */,
 				9088090D29C250A20061EF2E /* SignInViewModel.swift in Sources */,
 				9088090B29C234970061EF2E /* User+CoreDataProperties.swift in Sources */,
+				900D116229D0DD8E00ABCB41 /* AuthCoordinator.swift in Sources */,
 				90833C1D29CB83F7004D8485 /* SectionHeader.swift in Sources */,
 				9088096129C642BE0061EF2E /* Dynamic.swift in Sources */,
 				9088094729C3A34C0061EF2E /* HomeViewController.swift in Sources */,

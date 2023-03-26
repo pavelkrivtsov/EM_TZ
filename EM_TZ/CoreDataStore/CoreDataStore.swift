@@ -8,6 +8,11 @@
 import Foundation
 import CoreData
 
+protocol CoreDataStoreProtocol {
+    func isUserRegistered(name: String) -> Bool
+    func isUserRegistered(firstName: String, lastName: String, email: String) -> Bool
+}
+
 final class CoreDataStore {
     
     private lazy var persistentContainer: NSPersistentContainer = {
@@ -32,6 +37,9 @@ final class CoreDataStore {
             }
         }
     }
+}
+
+extension CoreDataStore: CoreDataStoreProtocol {
     
     func isUserRegistered(firstName: String, lastName: String, email: String) -> Bool {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")

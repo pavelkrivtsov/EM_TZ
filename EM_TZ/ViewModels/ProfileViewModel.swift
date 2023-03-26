@@ -63,6 +63,6 @@ final class ProfileViewModel {
     }
     
     func logOut() {
-        coordinator.showSingInScreen()
+        coordinator.flowCompletionHeandler?()
     }
 }

@@ -9,10 +9,10 @@ import UIKit
 
 final class HomeViewModel {
     
-    private let networkService: NetworkService
+    private var networkService: NetworkServiceProtocol
     var sections = Dynamic([Section]())
     
-    init(networkService: NetworkService) {
+    init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService
     }
     

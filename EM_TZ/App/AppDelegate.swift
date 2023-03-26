@@ -11,16 +11,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var coordinator: AppCoordinator?
+    var coordinator = AppCoordinator(navigationController: UINavigationController())
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let navigationController = UINavigationController()
-        let coreDataStore = CoreDataStore()
-        coordinator = AppCoordinator(navigationController: navigationController,
-                                     coreDataStore: coreDataStore)
-        coordinator?.start()
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        coordinator.start()
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = navigationController
+        window?.rootViewController = coordinator.navigationController
         window?.overrideUserInterfaceStyle = .light
         window?.makeKeyAndVisible()
         return true

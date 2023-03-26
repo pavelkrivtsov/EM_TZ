@@ -9,19 +9,19 @@ import Foundation
 
 final class LoginViewModel {
     
-    private let coordinator: AppCoordinatorProtocol
-    private var coreDataStore: CoreDataStore
+    private var coordinator: AuthCoordinatorProtocol
+    private var coreDataStore: CoreDataStoreProtocol
     var userStatusText = Dynamic("")
     
-    init(coordinator: AppCoordinatorProtocol,
-         coreDataStore: CoreDataStore) {
+    init(coordinator: AuthCoordinatorProtocol,
+         coreDataStore: CoreDataStoreProtocol) {
         self.coordinator = coordinator
         self.coreDataStore = coreDataStore
     }
     
     func loginButtonPressed(name: String) {
         if coreDataStore.isUserRegistered(name: name) {
-            coordinator.showFirstPage()
+            coordinator.flowCompletionHeandler?()
         } else {
             userStatusText.value = "There is no such user"
         }
