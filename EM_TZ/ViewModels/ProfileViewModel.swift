@@ -10,10 +10,10 @@ import UIKit
 
 final class ProfileViewModel {
     
-    private let coordinator: AppCoordinator
+    private let coordinator: AppCoordinatorProtocol
     private var tableManager: ProfileTableManager
     
-    init(coordinator: AppCoordinator, tableManager: ProfileTableManager) {
+    init(coordinator: AppCoordinatorProtocol, tableManager: ProfileTableManager) {
         self.coordinator = coordinator
         self.tableManager = tableManager
     }

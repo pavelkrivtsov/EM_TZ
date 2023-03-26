@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileAssembly {
     
-    static func assemble(_ coordinator: AppCoordinator) -> UIViewController {
+    static func assemble(_ coordinator: AppCoordinatorProtocol) -> UIViewController {
         let tableView = UITableView()
         let tableManager = ProfileTableManager(tableView: tableView)
         let viewModel = ProfileViewModel(coordinator: coordinator, tableManager: tableManager)

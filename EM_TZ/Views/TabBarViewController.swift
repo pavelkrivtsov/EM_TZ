@@ -9,9 +9,9 @@ import UIKit
 
 final class TabBarViewController: UITabBarController {
     
-    private var coordinator: AppCoordinator
+    private var coordinator: AppCoordinatorProtocol
     
-    init(coordinator: AppCoordinator) {
+    init(coordinator: AppCoordinatorProtocol) {
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }

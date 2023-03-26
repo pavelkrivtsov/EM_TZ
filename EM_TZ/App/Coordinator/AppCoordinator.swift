@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol AppCoordinatorProtocol {
+    func showSingInScreen()
+    func showLoginScreen()
+    func showFirstPage()
+}
+
 final class AppCoordinator: Coordinator {
     
     var navigationController: UINavigationController
@@ -21,6 +27,9 @@ final class AppCoordinator: Coordinator {
     func start() {
         showSingInScreen()
     }
+}
+
+extension AppCoordinator: AppCoordinatorProtocol {
 
     func showSingInScreen() {
         let viewModel = SignInViewModel(coordinator: self, coreDataStore: coreDataStore)

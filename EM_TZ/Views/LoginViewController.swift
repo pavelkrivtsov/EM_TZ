@@ -53,6 +53,7 @@ final class LoginViewController: UIViewController {
             make.top.equalTo(firstNameField.snp.bottom).offset(35)
             make.leading.trailing.equalToSuperview().inset(43)
         }
+        passwordField.isSecureTextEntry = true
         
         view.addSubview(loginButton)
         loginButton.snp.makeConstraints { make in

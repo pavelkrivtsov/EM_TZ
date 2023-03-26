@@ -9,11 +9,11 @@ import Foundation
 
 final class LoginViewModel {
     
-    private let coordinator: AppCoordinator
+    private let coordinator: AppCoordinatorProtocol
     private var coreDataStore: CoreDataStore
     var userStatusText = Dynamic("")
     
-    init(coordinator: AppCoordinator,
+    init(coordinator: AppCoordinatorProtocol,
          coreDataStore: CoreDataStore) {
         self.coordinator = coordinator
         self.coreDataStore = coreDataStore
