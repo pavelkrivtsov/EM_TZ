@@ -20,4 +20,7 @@ extension UIColor {
     static var tabBarItemLight: UIColor {
         UIColor(red: 0.565, green: 0.565, blue: 0.565, alpha: 1)
     }
+    static var buttonColor: UIColor {
+        UIColor(red: 0.306, green: 0.333, blue: 0.843, alpha: 1)
+    }
 }

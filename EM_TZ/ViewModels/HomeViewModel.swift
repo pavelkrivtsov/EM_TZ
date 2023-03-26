@@ -18,7 +18,10 @@ final class HomeViewModel {
     
     func fetchProducts() {
         networkService.fetchAllProducts { [weak self] sections in
-            guard let self = self else { return }
+            guard let self = self else {
+                print("networkService.fetchAllProducts error")
+                return
+            }
             self.sections.value = sections
         }
     }

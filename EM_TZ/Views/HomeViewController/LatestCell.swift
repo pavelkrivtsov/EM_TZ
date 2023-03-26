@@ -34,7 +34,6 @@ final class LatestCell: UICollectionViewCell {
             make.trailing.bottom.equalToSuperview().inset(5)
             make.height.width.equalTo(20)
         }
-//        addButton.backgroundColor = .red
         addToCartButton.setImage(.add, for: .normal)
         
         contentView.addSubview(priceLabel)
@@ -59,12 +58,11 @@ final class LatestCell: UICollectionViewCell {
         categoryLabel.clipsToBounds = true
         categoryLabel.font = .init(name: "Montserrat-Bold", size: 6)
         categoryLabel.textAlignment = .center
-//        
+
         contentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel.snp.bottom).inset(-6)
             make.leading.equalToSuperview().inset(7)
-//            make.bottom.equalTo(price.snp.top).inset(-5.4)
             make.width.equalTo(priceLabel.snp.width)
         }
         nameLabel.backgroundColor = .darkGray
@@ -89,7 +87,10 @@ final class LatestCell: UICollectionViewCell {
 
 extension LatestCell {
     func configure(item: ProductsElement) {
-        guard let url = URL(string: item.imageURL) else { return }
+        guard let url = URL(string: item.imageURL) else {
+            print("LatestCell configure error")
+            return
+        }
         self.categoryLabel.text = item.category
         self.nameLabel.text = item.name
         let doubleStr = String(format: "%.2f", item.price)

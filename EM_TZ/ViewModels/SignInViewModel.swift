@@ -9,7 +9,7 @@ import Foundation
 
 final class SignInViewModel {
     
-    private var coordinator: AppCoordinator
+    private let coordinator: AppCoordinator
     private var coreDataStore: CoreDataStore
     var userStatusText = Dynamic("")
     

@@ -31,7 +31,7 @@ final class FlashSaleCell: UICollectionViewCell {
         contentView.addSubview(imageView)
         imageView.frame = contentView.bounds
         imageView.contentMode = .scaleAspectFill
-//        
+       
         contentView.addSubview(addToCartButton)
         addToCartButton.snp.makeConstraints { make in
             make.width.height.equalTo(35)
@@ -99,7 +99,6 @@ final class FlashSaleCell: UICollectionViewCell {
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel.snp.bottom).inset(-6.32)
             make.leading.equalToSuperview().inset(10)
-//            make.bottom.equalToSuperview().inset(30.54)
             make.width.equalTo(priceLabel.snp.width)
         }
         nameLabel.backgroundColor = .darkGray
@@ -126,7 +125,10 @@ final class FlashSaleCell: UICollectionViewCell {
 extension FlashSaleCell {
     func configure(item: ProductsElement) {
         guard let url = URL(string: item.imageURL),
-              let discount = item.discount else { return }
+              let discount = item.discount else {
+            print("FlashSaleCell configure error")
+            return
+        }
         self.categoryLabel.text = item.category
         self.nameLabel.text = item.name
         let doubleStr = String(format: "%.2f", item.price)

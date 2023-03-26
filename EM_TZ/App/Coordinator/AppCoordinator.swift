@@ -37,7 +37,7 @@ final class AppCoordinator: Coordinator {
     }
     
     func showFirstPage() {
-        let vc = TabBarViewController()
+        let vc = TabBarViewController(coordinator: self)
         navigationController.navigationBar.isHidden = true
         navigationController.pushViewController(vc, animated: false)
     }

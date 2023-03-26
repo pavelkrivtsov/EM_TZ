@@ -17,15 +17,13 @@ final class SectionHeader: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        backgroundColor = .gray
         
         addSubview(categoryName)
         categoryName.snp.makeConstraints { make in
             make.leading.bottom.equalToSuperview()
             make.height.equalTo(16)
         }
-        categoryName.font = .init(name: "Montserrat-Medium", size: 16)
-//        categoryName.backgroundColor = .darkGray
+        categoryName.font = .init(name: "Montserrat-Bold", size: 16)
         
         addSubview(viewAllButton)
         viewAllButton.snp.makeConstraints { make in
@@ -35,7 +33,6 @@ final class SectionHeader: UICollectionReusableView {
         viewAllButton.setTitle("View all", for: .normal)
         viewAllButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 12)
         viewAllButton.tintColor = UIColor.tabBarItemAccent
-//        viewAllButton.backgroundColor = .red
     }
     
     @available(*, unavailable)

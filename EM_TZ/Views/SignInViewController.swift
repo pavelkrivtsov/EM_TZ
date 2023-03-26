@@ -71,7 +71,7 @@ final class SignInViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(43)
             make.height.equalTo(46)
         }
-        signInButton.layer.backgroundColor = UIColor(red: 0.306, green: 0.333, blue: 0.843, alpha: 1).cgColor
+        signInButton.layer.backgroundColor = UIColor.buttonColor.cgColor
         signInButton.setTitle("Sign in", for: .normal)
         signInButton.titleLabel?.font = .init(name: "Montserrat-Bold", size: 15)
         signInButton.layer.cornerRadius = 15

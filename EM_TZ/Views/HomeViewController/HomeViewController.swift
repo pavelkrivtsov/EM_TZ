@@ -25,11 +25,15 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.mainWhite
     
         viewModel.fetchProducts()
         bindViewModel()
-        
+//        setupNavBar()
+//        setupCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupNavBar()
         setupCollectionView()
     }
@@ -50,12 +54,8 @@ final class HomeViewController: UIViewController {
     
     private func bindViewModel() {
         viewModel.sections.bind { [weak self] sections in
-            
-            DispatchQueue.main.async {
-                self?.sections = sections
-                self?.collectionView.reloadData()
-            }
-            
+            self?.sections = sections
+            self?.collectionView.reloadData()
         }
     }
     
@@ -184,6 +184,7 @@ extension HomeViewController {
     }
 }
 
+//  MARK: - NavigationController
 extension HomeViewController {
     
     private func setupNavBar() {

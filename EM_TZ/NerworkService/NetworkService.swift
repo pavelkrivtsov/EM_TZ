@@ -7,21 +7,26 @@
 
 import Foundation
 
-enum NetworkResult<Error> {
-    case success
-    case failure(Error)
-}
-
-enum NetworkResponse: String, Error {
-    case authenticationError = "Authentication error"
-    case badRequest = "Bad request"
-    case outdated = "Outdated"
-    case failed = "Failed"
-    case noData = "No data"
-    case unableToDecode = "Unable to decode"
-}
-
 final class NetworkService {
+    
+    enum NetworkResult<Error> {
+        case success
+        case failure(Error)
+    }
+
+    enum NetworkResponse: String, Error {
+        case authenticationError = "Authentication error"
+        case badRequest = "Bad request"
+        case outdated = "Outdated"
+        case failed = "Failed"
+        case noData = "No data"
+        case unableToDecode = "Unable to decode"
+    }
+    
+    enum URLStrings: String {
+        case latest = "https://run.mocky.io/v3/cc0071a1-f06e-48fa-9e90-b1c2a61eaca7"
+        case flashSale = "https://run.mocky.io/v3/a9ceeb6e-416d-4352-bde6-2203416576ac"
+    }
     
     private func handleNetworkResponse(_ response: HTTPURLResponse) -> NetworkResult<NetworkResponse> {
         switch response.statusCode {
@@ -33,9 +38,16 @@ final class NetworkService {
         }
     }
     
-    private func taskResume<T: Decodable>(from request: URLRequest,
+    private func taskResume<T: Decodable>(from urlString: URLStrings,
                                           type: T.Type,
                                           onCompletion: @escaping(Result<T, NetworkResponse>) -> Void) {
+        
+        guard let url = URL(string: urlString.rawValue) else {
+            onCompletion(.failure(.badRequest))
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
         
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             
@@ -63,24 +75,14 @@ final class NetworkService {
                 case .failure(let failureError):
                     onCompletion(.failure(failureError))
                 }
-                
             }
         }
         task.resume()
     }
     
     private func fetchLatest(onCompletion: @escaping(Result<[LatestElement], NetworkResponse>) -> Void) {
-        
-        let urlString = "https://run.mocky.io/v3/cc0071a1-f06e-48fa-9e90-b1c2a61eaca7"
-        
-        guard let url = URL(string: urlString) else {
-            onCompletion(.failure(.badRequest))
-            return
-        }
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        self.taskResume(from: request, type: Latest.self) { result in
+
+        taskResume(from: .latest, type: Latest.self) { result in
             switch result {
             case .success(let latest):
                 let items = latest.latest
@@ -93,16 +95,7 @@ final class NetworkService {
     
     private func fetchFlashSale(onCompletion: @escaping(Result<[FlashSaleElement], NetworkResponse>) -> Void) {
         
-        let urlString = "https://run.mocky.io/v3/a9ceeb6e-416d-4352-bde6-2203416576ac"
-        
-        guard let url = URL(string: urlString) else {
-            onCompletion(.failure(.badRequest))
-            return
-        }
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        self.taskResume(from: request, type: FlashSale.self) { result in
+        taskResume(from: .flashSale, type: FlashSale.self) { result in
             switch result {
             case .success(let flashSale):
                 let items = flashSale.flashSale
@@ -123,7 +116,7 @@ extension NetworkService {
         var sections = [Section]()
         
         group.enter()
-        self.fetchLatest { result in
+        fetchLatest { result in
             switch result {
             case .success(let latestArray):
                 var items = [ProductsElement]()
@@ -143,7 +136,7 @@ extension NetworkService {
         }
         
         group.enter()
-        self.fetchFlashSale { result in
+        fetchFlashSale { result in
             switch result {
             case .success(let latestArray):
                 var items = [ProductsElement]()

@@ -61,7 +61,7 @@ final class LoginViewController: UIViewController {
             make.top.equalTo(passwordField.snp.bottom).offset(99)
             make.height.equalTo(46)
         }
-        loginButton.layer.backgroundColor = UIColor(red: 0.306, green: 0.333, blue: 0.843, alpha: 1).cgColor
+        loginButton.layer.backgroundColor = UIColor.buttonColor.cgColor
         loginButton.setTitle("Login", for: .normal)
         loginButton.titleLabel?.font = .init(name: "Montserrat-Bold", size: 15)
         loginButton.layer.cornerRadius = 15

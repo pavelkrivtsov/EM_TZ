@@ -9,9 +9,17 @@ import UIKit
 
 final class TabBarViewController: UITabBarController {
     
-    private var networkService = NetworkService()
-    private lazy var homeViewModel = HomeViewModel(networkService: networkService)
+    private var coordinator: AppCoordinator
     
+    init(coordinator: AppCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
          super.viewDidLoad()
@@ -25,7 +33,7 @@ final class TabBarViewController: UITabBarController {
     private func generateTabBar() {
         viewControllers = [
             generateVC(
-                viewController: HomeViewController(viewModel: homeViewModel),
+                viewController: HomeViewController(viewModel: HomeViewModel(networkService: NetworkService())),
                 image: UIImage(named: "home")
             ),
             generateVC(
@@ -41,15 +49,16 @@ final class TabBarViewController: UITabBarController {
                 image: UIImage(named: "chat")
             ),
             generateVC(
-                viewController: UIViewController(),
+                viewController: ProfileAssembly.assemble(coordinator),
                 image: UIImage(named: "profile")
-            ),
+            )
         ]
     }
     
     private func generateVC(viewController: UIViewController, image: UIImage?) -> UINavigationController {
         viewController.tabBarItem.image = image
         viewController.tabBarItem.imageInsets = UIEdgeInsets(top: 6.0, left: 0.0, bottom: -6.0, right: 0.0)
+        viewController.view.backgroundColor = .white
         let nc = UINavigationController(rootViewController: viewController)
         return nc
     }
