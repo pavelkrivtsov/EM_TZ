@@ -75,7 +75,7 @@ extension ProfileTableManager: ProfileTableManagerOutput {
             cell.cellConfiguration(model: model)
             return cell
             
-        case .withoutArrowRightCell(image: let image, label: let label, secondLabel: let secondLabel):
+        case .withoutArrowRightCell(tapAction: _, image: _, label: _, secondLabel: _):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: model.cellsId,
                                                            for: indexPath)
                     as? WithoutArrowRightCell else { return UITableViewCell() }
@@ -93,7 +93,7 @@ extension ProfileTableManager: ProfileTableManagerOutput {
     }
 }
 
-extension ProfileTableManager: UITableViewDataSource, UITableViewDelegate {
+extension ProfileTableManager: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModels.count
@@ -101,5 +101,14 @@ extension ProfileTableManager: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         showScreen(tableView: tableView, cellForRowAt: indexPath, viewModels: viewModels)
+    }
+}
+
+extension ProfileTableManager: UITableViewDelegate {
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let model = viewModels[indexPath.row]
+        model.cellAction?.tapAction?()
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol CellTypeProtocol {
     var cellsId: String { get }
+    var cellAction: CellGeneralPropertiesProtocol? { get }
     var image: CellImagePropertiesProtocol? { get }
     var label: CellLabelPropertiesProtocol? { get }
     var secondLabel: CellLabelPropertiesProtocol? { get }
@@ -20,12 +21,29 @@ enum CellType {
     case labelCell(label: CellLabelPropertiesProtocol)
     case arrowRightCell(image: CellImagePropertiesProtocol,
                         label: CellLabelPropertiesProtocol)
-    case withoutArrowRightCell(image: CellImagePropertiesProtocol,
+    case withoutArrowRightCell(tapAction: CellGeneralPropertiesProtocol,
+                               image: CellImagePropertiesProtocol,
                                label: CellLabelPropertiesProtocol,
                                secondLabel: CellLabelPropertiesProtocol)
 }
 
 extension CellType: CellTypeProtocol {
+    
+    var cellAction: CellGeneralPropertiesProtocol? {
+        switch self {
+        case .avatarCell:
+            return nil
+        case .buttonCell:
+            return nil
+        case .labelCell(_):
+            return nil
+        case .arrowRightCell(_, _):
+            return nil
+        case .withoutArrowRightCell(let tapAction, _, _, _):
+            return tapAction
+        }
+    }
+    
            
     var cellsId: String {
         switch self {
@@ -37,7 +55,7 @@ extension CellType: CellTypeProtocol {
             return "ButtonCell"
         case .arrowRightCell(image: _, label: _):
             return "ArrowRightCell"
-        case .withoutArrowRightCell(image: _, label: _, secondLabel: _):
+        case .withoutArrowRightCell(tapAction: _, image: _, label: _, secondLabel: _):
             return "WithoutArrowRightCell"
         }
     }
@@ -52,7 +70,7 @@ extension CellType: CellTypeProtocol {
             return nil
         case .arrowRightCell(image: let image, label: _):
             return image
-        case .withoutArrowRightCell(image: let image, label: _, secondLabel: _):
+        case .withoutArrowRightCell(tapAction: _, image: let image, label: _, secondLabel: _):
             return image
         }
     }
@@ -67,7 +85,7 @@ extension CellType: CellTypeProtocol {
             return nil
         case .arrowRightCell(image: _, label: let label):
             return label
-        case .withoutArrowRightCell(image: _, label: let label, secondLabel: _):
+        case .withoutArrowRightCell(tapAction: _, image: _, label: let label, secondLabel: _):
             return label
         }
     }
@@ -82,10 +100,18 @@ extension CellType: CellTypeProtocol {
             return nil
         case .arrowRightCell(_, _):
             return nil
-        case .withoutArrowRightCell(_, _, let secondLabel):
+        case .withoutArrowRightCell(_, _, _, let secondLabel):
             return secondLabel
         }
     }
+}
+
+protocol CellGeneralPropertiesProtocol {
+    var tapAction: (() -> Void)? { get }
+}
+
+struct CellGeneralProperties: CellGeneralPropertiesProtocol {
+    public var tapAction: (() -> Void)?
 }
 
 protocol CellImagePropertiesProtocol {

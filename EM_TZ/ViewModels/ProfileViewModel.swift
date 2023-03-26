@@ -22,7 +22,7 @@ final class ProfileViewModel {
         
         let cellModels: [CellType] = {
             return [
-                    .avatarCell,
+                .avatarCell,
                 
                     .labelCell(label: CellLabelProperties(title: "Satria Adhi Pradana")),
                 
@@ -34,7 +34,9 @@ final class ProfileViewModel {
                     .arrowRightCell(image: CellImageProperties(image: .init(named: "cardIcon")!),
                                     label: CellLabelProperties(title: "Payment method")),
                 
-                    .withoutArrowRightCell(image: CellImageProperties(image: .init(named: "cardIcon")!),
+                
+                    .withoutArrowRightCell(tapAction: CellGeneralProperties(),
+                                           image: CellImageProperties(image: .init(named: "cardIcon")!),
                                            label: CellLabelProperties(title: "Balance"),
                                            secondLabel: CellLabelProperties(title: "$ \(1593)")),
                 
@@ -44,11 +46,15 @@ final class ProfileViewModel {
                     .arrowRightCell(image: CellImageProperties(image: .init(named: "arrowsIcon")!),
                                     label: CellLabelProperties(title: "Restore Purchase")),
                 
-                    .withoutArrowRightCell(image: CellImageProperties(image: .init(named: "questionIcon")!),
+                    .withoutArrowRightCell(tapAction: CellGeneralProperties(),
+                                           image: CellImageProperties(image: .init(named: "questionIcon")!),
                                            label: CellLabelProperties(title: "Help"),
                                            secondLabel: CellLabelProperties()),
                 
-                    .withoutArrowRightCell(image: CellImageProperties(image: .init(named: "logoutIcon")!),
+                    .withoutArrowRightCell(tapAction: CellGeneralProperties(tapAction: {
+                        self.logOut()
+                    }),
+                                           image: CellImageProperties(image: .init(named: "logoutIcon")!),
                                            label: CellLabelProperties(title: "Log out"),
                                            secondLabel: CellLabelProperties())
             ]
