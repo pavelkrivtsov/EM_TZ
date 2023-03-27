@@ -20,15 +20,12 @@ final class ButtonCell: UITableViewCell {
             make.height.equalTo(40)
             make.leading.trailing.equalToSuperview().inset(43)
         }
-        var configuration = UIButton.Configuration.bordered()
-        configuration.baseBackgroundColor = UIColor.buttonColor
-        configuration.baseForegroundColor = .white
-        configuration.title = "Upload item"
-        configuration.titleAlignment = .center
-        configuration.attributedTitle?.font = .init(name: "Montserrat-Bold", size: 15)
-        configuration.image = .init(named: "custom.square.and.arrow.up")
-        configuration.cornerStyle = .dynamic
-        button.configuration = configuration
+        button.backgroundColor = UIColor.buttonColor
+        button.setTitle("Upload item", for: .normal)
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = .init(name: "Montserrat-Bold", size: 15)
+        button.setImage(.init(named: "custom.square.and.arrow.up"), for: .normal)
+        button.imageEdgeInsets.right = 40
         button.layer.cornerRadius = 15
         button.clipsToBounds = true
     }
