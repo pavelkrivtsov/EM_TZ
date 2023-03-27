@@ -55,7 +55,7 @@ final class NetworkService {
         
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             
-            guard let `self` = self else { return }
+            guard let self = self else { return }
             if error != nil {
                 onCompletion(.failure(NetworkResponse.failed))
             }

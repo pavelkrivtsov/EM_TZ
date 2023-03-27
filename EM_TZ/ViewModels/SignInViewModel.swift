@@ -27,9 +27,6 @@ final class SignInViewModel {
         }
         return false
     }
-}
-
-extension SignInViewModel {
     
     func signInButtonPressed(firstName: String?, lastName: String?, email: String?) {
         

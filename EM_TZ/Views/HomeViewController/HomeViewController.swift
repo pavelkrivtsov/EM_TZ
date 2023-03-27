@@ -10,7 +10,7 @@ import UIKit
 final class HomeViewController: UIViewController {
 
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-    private var viewModel: HomeViewModel
+    private let viewModel: HomeViewModel
     private var sections = [Section]()
 
     init(viewModel: HomeViewModel) {
@@ -26,10 +26,13 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        viewModel.fetchProducts()
         bindViewModel()
         setupNavBar()
         setupCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.fetchProducts()
     }
 
     deinit {
@@ -52,8 +55,9 @@ final class HomeViewController: UIViewController {
     
     private func bindViewModel() {
         viewModel.sections.bind { [weak self] sections in
-            self?.sections = sections
-            self?.collectionView.reloadData()
+            guard let self = self else { return }
+            self.sections = sections
+            self.collectionView.reloadData()
         }
     }
     

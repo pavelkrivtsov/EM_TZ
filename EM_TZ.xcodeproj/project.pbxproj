@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		900D116229D0DD8E00ABCB41 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D116129D0DD8E00ABCB41 /* AuthCoordinator.swift */; };
+		900D116629D112F300ABCB41 /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D116529D112F300ABCB41 /* HomeAssembly.swift */; };
 		9017AC8F29CCBD9B00A567ED /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017AC8E29CCBD9B00A567ED /* HomeViewModel.swift */; };
 		906D393F29C6574B00065D71 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906D392929C6574B00065D71 /* Montserrat-Medium.ttf */; };
 		906D394129C6574B00065D71 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906D392B29C6574B00065D71 /* Montserrat-Light.ttf */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		900D116129D0DD8E00ABCB41 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		900D116529D112F300ABCB41 /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
 		9017AC8E29CCBD9B00A567ED /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		906D392929C6574B00065D71 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		906D392B29C6574B00065D71 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		9088094829C3A4610061EF2E /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				900D116529D112F300ABCB41 /* HomeAssembly.swift */,
 				9088094629C3A34C0061EF2E /* HomeViewController.swift */,
 				90833C1829CB42C9004D8485 /* LatestCell.swift */,
 				90833C1A29CB671D004D8485 /* FlashSaleCell.swift */,
@@ -392,6 +395,7 @@
 				9072B92329C22D2E001B3DF0 /* AppCoordinator.swift in Sources */,
 				9072B91E29C22BA1001B3DF0 /* LoginViewController.swift in Sources */,
 				9088090329C233D40061EF2E /* Model.xcdatamodeld in Sources */,
+				900D116629D112F300ABCB41 /* HomeAssembly.swift in Sources */,
 				9072B92529C22D39001B3DF0 /* Coordinator.swift in Sources */,
 				90B0A20C29D061E70020604A /* CellModels.swift in Sources */,
 				90B0A20329CF6F810020604A /* ProfileViewModel.swift in Sources */,
