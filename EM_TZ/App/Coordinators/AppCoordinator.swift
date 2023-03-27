@@ -45,6 +45,7 @@ extension AppCoordinator: AppCoordinatorProtocol {
             guard let self = self else { return }
             self.goToAuth(coreDataStore: self.coreDataStore)
         }
+        navigationController.navigationBar.isHidden = true
         navigationController.setViewControllers([vc], animated: false)
     }
 }

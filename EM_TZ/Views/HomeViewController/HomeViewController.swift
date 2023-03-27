@@ -34,10 +34,6 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         viewModel.fetchProducts()
     }
-
-    deinit {
-        print("deinit")
-    }
     
     private func setupCollectionView() {
         view.addSubview(collectionView)
