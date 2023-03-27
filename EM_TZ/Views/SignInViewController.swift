@@ -105,6 +105,7 @@ final class SignInViewController: UIViewController {
             make.bottom.equalTo(firstNameField.snp.top)
             make.top.equalTo(signInImage.snp.bottom)
         }
+        userStatusLabel.font =  .init(name: "Montserrat-Regular", size: 10)
         userStatusLabel.textAlignment = .center
         userStatusLabel.textColor = .red
         
