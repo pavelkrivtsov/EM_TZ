@@ -139,6 +139,7 @@ extension NetworkService: NetworkServiceProtocol {
             group.leave()
         }
         
+        group.wait()
         group.enter()
         fetchFlashSale { result in
             switch result {
