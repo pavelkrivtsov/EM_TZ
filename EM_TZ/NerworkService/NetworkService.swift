@@ -13,12 +13,12 @@ protocol NetworkServiceProtocol {
 
 final class NetworkService {
     
-    enum NetworkResult<Error> {
+    private enum NetworkResult<Error> {
         case success
         case failure(Error)
     }
 
-    enum NetworkResponse: String, Error {
+    private enum NetworkResponse: String, Error {
         case authenticationError = "Authentication error"
         case badRequest = "Bad request"
         case outdated = "Outdated"
@@ -27,7 +27,7 @@ final class NetworkService {
         case unableToDecode = "Unable to decode"
     }
     
-    enum URLStrings: String {
+    private enum URLStrings: String {
         case latest = "https://run.mocky.io/v3/cc0071a1-f06e-48fa-9e90-b1c2a61eaca7"
         case flashSale = "https://run.mocky.io/v3/a9ceeb6e-416d-4352-bde6-2203416576ac"
     }
